@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Software Craftsmanship Berlin",
+    "url": "https://www.meetup.com/Software-Craftsmanship-Berlin/",
+    "location": {
+      "city": "Berlin, Germany",
+      "coordinates": [13.391765857937543, 52.518358457921096]
+    }
+  },
+  {
+    "name": "Softwerkskammer Hamburg",
+    "url": "https://www.softwerkskammer.org/groups/hamburg",
+    "location": {
+      "city": "Hamburg, Germany",
+      "coordinates": [10.000807192206253,53.5521494878235]
+    }
+  },
+  {
+    "name": "Softwerkskammer Münster, Osnabrück & Bielefeld",
+    "url": "https://www.softwerkskammer.org/groups/socramob",
+    "location": {
+      "city": "Niedersachsen/NRW, Germany",
+      "coordinates": [8.02097649761589,52.16992136590494]
+    }
+  },
+  {
+    "name": "Softwerkskammer München",
+    "url": "https://www.meetup.com/Software-Craftsmanship-Meetup-Softwerkskammer-Munchen/",
+    "location": {
+      "city": "München, Germany",
+      "coordinates": [11.575506762468535,48.13721093113753]
+    }
+  },
+  {
+    "name": "London Software Craftsmanship",
+    "url": "https://www.meetup.com/london-software-craftsmanship/",
+    "location": {
+      "city": "London, United Kingdom",
+      "coordinates": [-0.12769666311382366,51.50730924351245]
+    }
+  },
+  {
+    "name": "Cambridge Software Crafters",
+    "url": "https://www.meetup.com/Cambridge-Software-Crafters/",
+    "location": {
+      "city": "Cambridge, United Kingdom",
+      "coordinates": [0.0849679, 52.1988895]
+    }
+  }
+]
