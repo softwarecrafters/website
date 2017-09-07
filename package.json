@@ -1,0 +1,15 @@
+{
+  "name": "softwarecrafters-website",
+  "version": "1.0.0",
+  "description": "The website behind softwarecraft.org",
+  "main": "index.js",
+  "repository": "git@github.com:softwarecrafters/website.git",
+  "author": "Raimo Radczewski <raimoradczewski@googlemail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.js"
+  },
+  "devDependencies": {
+    "glob": "^7.1.2"
+  }
+}
