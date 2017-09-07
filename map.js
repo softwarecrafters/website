@@ -129,7 +129,7 @@ const unclusteredCommunitiesPointLayer = {
         div.innerHTML = `<a target="_blank" href="${e.features[0].properties.url}"><b>${e.features[0].properties.name}</b></a>`;
 
         if(e.features[0].properties.url.includes('meetup')) {
-          const groupName = /meetup\.com\/([^\/]+)\//.exec(e.features[0].properties.url);
+          const groupName = /meetup\.com\/([^\/]+)\/?/.exec(e.features[0].properties.url);
           if(typeof groupName[1] === 'string' && groupName[1].length > 0) {
             fetchP(`https://api.meetup.com/${groupName[1]}?callback=`)
               .then(result => {
