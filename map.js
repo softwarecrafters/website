@@ -1,6 +1,15 @@
 const RED = "#CA4C4C";
 const YELLOW = "#E2B145";
 
+const fetchP = url => new Promise(resolve => {
+  const cbName = `cb_${Math.random()*10000000 | 0}`;
+  window[cbName] = resolve;
+  const script = document.createElement('script');
+  script.src = `${url}${cbName}`;
+  document.body.appendChild(script);
+});
+
+
 const clusterLayer = {
   id: "clusters",
   type: "circle",
@@ -115,9 +124,30 @@ const unclusteredCommunitiesPointLayer = {
           zoom: Math.max(map.getZoom(), 8),
           center: e.features[0].geometry.coordinates
         });
+
+        const div = document.createElement('div');
+        div.innerHTML = `<a target="_blank" href="${e.features[0].properties.url}"><b>${e.features[0].properties.name}</b></a>`;
+
+        if(e.features[0].properties.url.includes('meetup')) {
+          const groupName = /meetup\.com\/([^\/]+)\//.exec(e.features[0].properties.url);
+          if(typeof groupName[1] === 'string' && groupName[1].length > 0) {
+            fetchP(`https://api.meetup.com/${groupName[1]}?callback=`)
+              .then(result => {
+                const nextEvent = result.data.next_event;
+                if(!nextEvent)
+                  return;
+
+                const eventEl = document.createElement(`p`);
+                eventEl.style.color = 'black';
+                eventEl.innerHTML = `Next Event on ${new Date(nextEvent.time).toLocaleDateString()}: <br/><a href="https://www.meetup.com/${groupName[1]}/events/${nextEvent.id}/">${nextEvent.name}</a>`;
+                div.appendChild(eventEl);
+              })
+          }
+        }
+
         new mapboxgl.Popup()
           .setLngLat(e.features[0].geometry.coordinates)
-          .setHTML(`<a target="_blank" href="${e.features[0].properties.url}"><b>${e.features[0].properties.name}</b></a>`)
+          .setDOMContent(div)
           .addTo(map);
       }
       map.on("click", "unclusteredCommunities-point", showPopup);
