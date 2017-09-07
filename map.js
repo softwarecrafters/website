@@ -105,7 +105,7 @@ const unclusteredCommunitiesPointLayer = {
 
       map.on("click", "clusters", e => {
         map.flyTo({
-          zoom: Math.max(map.getZoom(), 6),
+          zoom: map.getZoom()+2,
           center: e.features[0].geometry.coordinates
         });
       });
