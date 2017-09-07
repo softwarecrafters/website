@@ -33,7 +33,7 @@ const unclusteredCommunitiesLayer = {
   layout: {
     "text-field": "{name}",
     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-    "text-offset": [0, 2.2]
+    "text-offset": [0, -2.2]
   }
 };
 
