@@ -1,3 +1,5 @@
+import communities from '../communities.json';
+
 const RED = "#CA4C4C";
 const YELLOW = "#E2B145";
 
@@ -79,10 +81,7 @@ const unclusteredCommunitiesPointLayer = {
       })
     );
 
-    Promise.all([
-      fetch("./communities.json").then(res => res.json()),
-      new Promise(resolve => map.on("load", resolve))
-    ]).then(([communities]) => {
+    map.on("load", () => {
       const dataSource = {
         type: "geojson",
         cluster: true,

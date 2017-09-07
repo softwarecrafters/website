@@ -1,0 +1,31 @@
+{
+  "title": "Schema for Community JSON Files",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of your community",
+      "type": "string"
+    },
+    "url": {
+      "description": "URL leading to further information about your community. If this is a meetup url, we will show your next event automatically",
+      "type": "string"
+    },
+    "location": {
+      "description": "Information about where to place your community on the map",
+      "type": "object",
+      "properties": {
+        "city": { "type": "string", "description": "Not used right now" },
+        "coordinates": {
+          "type": "array",
+          "description": "Long/Lat values of where to place your community.",
+          "items": [
+            { "type": "number", "title": "Longitude" },
+            { "type": "number", "title": "Latitude" }
+          ]
+        }
+      },
+      "required": ["coordinates"]
+    }
+  },
+  "required": ["name", "url", "location"]
+}
