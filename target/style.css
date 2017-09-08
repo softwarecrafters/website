@@ -30,6 +30,21 @@ nav {
   bottom: 0px;
 }
 
+#imprint-link {
+  font-weight: normal;
+  color: black;
+  display: none;
+}
+
+@media only screen and (min-width: 601px) {
+  #imprint-link {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+  }
+}
+
 .community-popup h1 {
   margin-top: 10px;
   font-size: 1.45rem;
