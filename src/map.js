@@ -1,16 +1,8 @@
 import communities from "../communities.json";
+import fetchP from "./fetchP";
 
 const RED = "#CA4C4C";
 const YELLOW = "#E2B145";
-
-const fetchP = url =>
-  new Promise(resolve => {
-    const cbName = `cb_${(Math.random() * 10000000) | 0}`;
-    window[cbName] = resolve;
-    const script = document.createElement("script");
-    script.src = `${url}${cbName}`;
-    document.body.appendChild(script);
-  });
 
 const clusterLayer = {
   id: "clusters",
@@ -61,12 +53,8 @@ const unclusteredCommunitiesPointLayer = {
   }
 };
 
-function run() {
-  $(".button-collapse").sideNav();
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoicnJhZGN6ZXdza2kiLCJhIjoiY2o3OWg4ZHV0MDFrdjM3b2FvcXFqdmtidiJ9.oULZ0ljtFZqMHFDbyvkwVQ";
-
-  var map = new mapboxgl.Map({
+const run = () => {
+  const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/rradczewski/cj79d81fz81sc2qtk1i1y4hqv",
     center: [13.2846504, 52.5069704],
@@ -166,6 +154,6 @@ function run() {
     map.on("mouseleave", "clusters", hidePointer);
     map.on("mouseleave", "unclusteredCommunities-point", hidePointer);
   });
-}
+};
 
 export default run;
