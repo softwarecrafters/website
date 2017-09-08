@@ -2,12 +2,13 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: Helvetica, Arial, sans-serif;
-  color: white;
+  color: black;
   font-weight: bold;
 }
 
 nav {
-  background: #CA4C4C;
+  color: white;
+  background: #ca4c4c;
 }
 
 #swcraft-title {
