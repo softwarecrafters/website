@@ -31,8 +31,13 @@ nav {
 }
 
 .community-popup h1 {
-  font-size: 1.4rem;
+  margin-top: 10px;
+  font-size: 1.45rem;
   text-decoration: underline;
+}
+
+.community-popup p {
+  font-size: 1.1rem;
 }
 
 @media only screen and (min-width: 601px) {

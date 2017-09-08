@@ -16,10 +16,9 @@ const addMeetup = (community, div) => {
     if (!nextEvent) return;
 
     const eventEl = document.createElement(`p`);
-    eventEl.style.color = "black";
-    eventEl.innerHTML = `Next Event on ${new Date(
+    eventEl.innerHTML = `<i class="fa fa-meetup">&nbsp;</i>Next Event on ${new Date(
       nextEvent.time
-    ).toLocaleDateString()}: <br/><a href="https://www.meetup.com/${groupName[1]}/events/${nextEvent.id}/">${nextEvent.name}</a>`;
+    ).toLocaleDateString()}: <br/><a target="_blank" href="https://www.meetup.com/${groupName[1]}/events/${nextEvent.id}/">${nextEvent.name}</a>`;
     div.appendChild(eventEl);
   });
 };
