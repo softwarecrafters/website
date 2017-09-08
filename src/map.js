@@ -1,5 +1,5 @@
-import communities from "../communities.json";
-import fetchP from "./fetchP";
+import createPopup from "./createPopup";
+import communityDataSource from "./dataSource";
 
 const RED = "#CA4C4C";
 const YELLOW = "#E2B145";
@@ -70,26 +70,7 @@ const run = () => {
   );
 
   map.on("load", () => {
-    const dataSource = {
-      type: "geojson",
-      cluster: true,
-      data: {
-        type: "FeatureCollection",
-        features: communities.map(community => ({
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: community.location.coordinates
-          },
-          properties: {
-            url: community.url,
-            name: community.name
-          }
-        }))
-      }
-    };
-
-    map.addSource("communities", dataSource);
+    map.addSource("communities", communityDataSource);
     map.addLayer(clusterLayer);
     map.addLayer(clusterCountLayer);
     map.addLayer(unclusteredCommunitiesPointLayer);
@@ -107,39 +88,17 @@ const run = () => {
     });
 
     const showPopup = e => {
+      const community = e.features[0];
       map.flyTo({
         zoom: Math.max(map.getZoom(), 8),
-        center: e.features[0].geometry.coordinates
+        center: community.geometry.coordinates
       });
 
-      const div = document.createElement("div");
-      div.innerHTML = `<a target="_blank" href="${e.features[0].properties
-        .url}"><b>${e.features[0].properties.name}</b></a>`;
-
-      if (e.features[0].properties.url.includes("meetup")) {
-        const groupName = /meetup\.com\/([^\/]+)\/?/.exec(
-          e.features[0].properties.url
-        );
-        if (typeof groupName[1] === "string" && groupName[1].length > 0) {
-          fetchP(
-            `https://api.meetup.com/${groupName[1]}?callback=`
-          ).then(result => {
-            const nextEvent = result.data.next_event;
-            if (!nextEvent) return;
-
-            const eventEl = document.createElement(`p`);
-            eventEl.style.color = "black";
-            eventEl.innerHTML = `Next Event on ${new Date(
-              nextEvent.time
-            ).toLocaleDateString()}: <br/><a href="https://www.meetup.com/${groupName[1]}/events/${nextEvent.id}/">${nextEvent.name}</a>`;
-            div.appendChild(eventEl);
-          });
-        }
-      }
+      const popup = createPopup(community);
 
       new mapboxgl.Popup()
-        .setLngLat(e.features[0].geometry.coordinates)
-        .setDOMContent(div)
+        .setLngLat(community.geometry.coordinates)
+        .setDOMContent(popup)
         .addTo(map);
     };
     map.on("click", "unclusteredCommunities-point", showPopup);

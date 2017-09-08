@@ -11,7 +11,8 @@ nav {
   background: #ca4c4c;
 }
 
-#swcraft-communities #sidenav-overlay, #swcraft-communities .side-nav {
+#swcraft-communities #sidenav-overlay,
+#swcraft-communities .side-nav {
   top: 56px;
 }
 
@@ -27,6 +28,11 @@ nav {
   top: 56px;
   z-index: -1;
   bottom: 0px;
+}
+
+.community-popup h1 {
+  font-size: 1.4rem;
+  text-decoration: underline;
 }
 
 @media only screen and (min-width: 601px) {
