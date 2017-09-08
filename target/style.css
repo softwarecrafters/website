@@ -11,6 +11,10 @@ nav {
   background: #ca4c4c;
 }
 
+#swcraft-communities #sidenav-overlay, #swcraft-communities .side-nav {
+  top: 56px;
+}
+
 #swcraft-title {
   font-size: 16px;
   line-height: initial;
