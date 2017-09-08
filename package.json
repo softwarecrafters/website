@@ -13,7 +13,7 @@
     "test": "node scripts/test-communities.js",
     "watch:js": "rollup --watch -c rollup.config.js",
     "watch:serve": "serve -o target/",
-    "watch": "npm-run-all -p watch:serve watch:js"
+    "watch": "npm run build:communities && npm-run-all -p watch:serve watch:js"
   },
   "devDependencies": {
     "ajv": "^5.2.2",
@@ -27,5 +27,9 @@
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "materialize-css": "^0.100.2"
   }
 }
