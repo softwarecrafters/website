@@ -57,8 +57,8 @@ const run = () => {
   const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/rradczewski/cj79d81fz81sc2qtk1i1y4hqv",
-    center: [13.2846504, 52.5069704],
-    zoom: 3
+    center: [Math.random()*360, 30],
+    zoom: 2
   });
 
   map.addControl(
