@@ -1,6 +1,6 @@
 # ![Favicon](target/apple-icon-57x57.png) Software Craft Website [![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=master)](https://travis-ci.org/softwarecrafters/website)
 
-The website powering [softwarecraft.org](https://softwarecraft.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
+The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
 
 Feel free to fork this repository and add your local community to it.
 
