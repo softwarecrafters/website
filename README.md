@@ -50,3 +50,5 @@ To be documented. For the moment, have a look at our [target/vendor/](target/ven
 - font-awesome
 - mapbox
 - jquery
+
+The logo is a remix of [🌐 from emojiOne](https://github.com/emojione/emojione/tree/2.2.7/assets) released under *Creative Commons Attribution 4.0 International* and the [Softwerkskammer Logo](https://github.com/softwerkskammer/softwerkskammer-logos) released under *Creative Commons Attribution 3.0*.
