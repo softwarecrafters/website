@@ -13,7 +13,7 @@
     "test": "node scripts/test-communities.js",
     "watch:js": "rollup --watch -c rollup.config.js",
     "watch:serve": "serve -o target/",
-    "watch": "npm run build:communities && npm-run-all -p watch:serve watch:js"
+    "watch": "npm-run-all build:communities -p watch:serve watch:js"
   },
   "devDependencies": {
     "ajv": "^5.2.2",
