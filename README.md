@@ -13,6 +13,7 @@ It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make s
 ```
 nvm install           # installs the node version we are using
 npm install -g yarn   # Install yarn
+npm install -g serve  # Install serve - https://github.com/zeit/serve
 yarn                  # Install dependencies
 
 yarn build            # Build initial version
