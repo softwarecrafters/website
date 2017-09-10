@@ -1,8 +1,9 @@
-# Software Craft Website [![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=master)](https://travis-ci.org/softwarecrafters/website)
+# ![Favicon](target/apple-icon-57x57.png) Software Craft Website [![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=master)](https://travis-ci.org/softwarecrafters/website)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/softwarecrafters/website.svg)](https://greenkeeper.io/)
 
-The website powering [softwarecraft.org](https://softwarecraft.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
+The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
+
 
 Feel free to fork this repository and add your local community to it.
 
@@ -52,3 +53,5 @@ To be documented. For the moment, have a look at our [target/vendor/](target/ven
 - font-awesome
 - mapbox
 - jquery
+
+The logo is a remix of [🌐 from emojiOne](https://github.com/emojione/emojione/tree/2.2.7/assets) released under *Creative Commons Attribution 4.0 International* and the [Softwerkskammer Logo](https://github.com/softwerkskammer/softwerkskammer-logos) released under *Creative Commons Attribution 3.0*.
