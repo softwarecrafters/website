@@ -1,5 +1,5 @@
 import initMap from "./map.js";
-import './style.css';
+import './style.scss';
 
 $(document).ready(function() {
   $(".button-collapse").sideNav();
