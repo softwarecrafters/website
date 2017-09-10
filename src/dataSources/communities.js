@@ -1,4 +1,4 @@
-import communities from "../communities.json";
+import communities from "../../communities.json";
 
 const dataSource = {
   type: "geojson",

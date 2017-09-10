@@ -1,8 +1,8 @@
 import createPopup from "./createPopup";
-import communityDataSource from "./dataSource";
+import communitiesDataSource from "./dataSources/communities";
 
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 mapboxgl.accessToken =
   "pk.eyJ1IjoicnJhZGN6ZXdza2kiLCJhIjoiY2o3OWg4ZHV0MDFrdjM3b2FvcXFqdmtidiJ9.oULZ0ljtFZqMHFDbyvkwVQ";
@@ -63,8 +63,8 @@ const run = () => {
   const map = new mapboxgl.Map({
     container: "map",
     style: "mapbox://styles/rradczewski/cj79d81fz81sc2qtk1i1y4hqv",
-    center: [Math.random()*360, 30],
-    zoom: 2
+    center: [Math.random() * 360, 30],
+    zoom: 2,
   });
 
   map.addControl(
@@ -76,7 +76,7 @@ const run = () => {
   );
 
   map.on("load", () => {
-    map.addSource("communities", communityDataSource);
+    map.addSource("communities", communitiesDataSource);
     map.addLayer(clusterLayer);
     map.addLayer(clusterCountLayer);
     map.addLayer(unclusteredCommunitiesPointLayer);
