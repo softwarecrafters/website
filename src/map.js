@@ -1,5 +1,6 @@
 import createPopup from "./createPopup";
 import communitiesDataSource from "./dataSources/communities";
+import signaturesDataSourceFactory from "./dataSources/signatures";
 
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -81,6 +82,8 @@ const run = () => {
     map.addLayer(clusterCountLayer);
     map.addLayer(unclusteredCommunitiesPointLayer);
     map.addLayer(unclusteredCommunitiesLayer);
+
+    signaturesDataSourceFactory(map);
 
     map.on("click", function(e) {
       console.log(JSON.stringify([e.lngLat.lng, e.lngLat.lat]));

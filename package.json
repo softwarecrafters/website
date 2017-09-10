@@ -31,6 +31,7 @@
     "serve": "^6.0.6"
   },
   "dependencies": {
+    "@mapbox/togeojson": "^0.16.0",
     "mapbox-gl": "^0.39.1"
   }
 }
