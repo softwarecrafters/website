@@ -30,8 +30,6 @@
     "rollup-plugin-scss": "^0.3.0"
   },
   "dependencies": {
-    "jquery": "^3.2.1",
-    "mapbox-gl": "^0.39.1",
-    "materialize-css": "^0.100.2"
+    "mapbox-gl": "^0.39.1"
   }
 }
