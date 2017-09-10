@@ -26,10 +26,12 @@
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.0",
     "rollup-plugin-json": "^2.3.0",
-    "rollup-plugin-node-resolve": "^3.0.0"
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-scss": "^0.3.0"
   },
   "dependencies": {
     "jquery": "^3.2.1",
+    "mapbox-gl": "^0.39.1",
     "materialize-css": "^0.100.2"
   }
 }

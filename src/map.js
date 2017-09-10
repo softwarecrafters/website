@@ -1,6 +1,12 @@
 import createPopup from "./createPopup";
 import communityDataSource from "./dataSource";
 
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+mapboxgl.accessToken =
+  "pk.eyJ1IjoicnJhZGN6ZXdza2kiLCJhIjoiY2o3OWg4ZHV0MDFrdjM3b2FvcXFqdmtidiJ9.oULZ0ljtFZqMHFDbyvkwVQ";
+
 const RED = "#CA4C4C";
 const YELLOW = "#E2B145";
 
