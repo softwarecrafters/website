@@ -1,6 +1,9 @@
 # ![Favicon](target/apple-icon-57x57.png) Software Craft Website [![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=master)](https://travis-ci.org/softwarecrafters/website)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/softwarecrafters/website.svg)](https://greenkeeper.io/)
+
 The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
+
 
 Feel free to fork this repository and add your local community to it.
 
