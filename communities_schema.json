@@ -17,15 +17,20 @@
         "city": { "type": "string", "description": "Not used right now" },
         "coordinates": {
           "type": "array",
-          "description": "Long/Lat values of where to place your community.",
+          "description": "Long/Lat values of where to place your community. ATTENTION: Long comes first, this is different from how GMaps/OSM show them",
+          "additionalItems": false,
+          "minItems": 2,
+          "maxItems": 2,
           "items": [
             { "type": "number", "title": "Longitude" },
             { "type": "number", "title": "Latitude" }
           ]
         }
       },
+      "additionalProperties": false,
       "required": ["coordinates"]
     }
   },
+  "additionalProperties": false,
   "required": ["name", "url", "location"]
 }
