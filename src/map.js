@@ -1,67 +1,15 @@
-import createPopup from './createPopup';
-import communities from '../communities.json';
-import communitiesDataSource from './dataSources/communities';
-
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+import configureCommunities from './communities';
+import configureConferences from './conferences';
+
+import randomCommunityCoordinates from './communities/randomCommunity';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoicnJhZGN6ZXdza2kiLCJhIjoiY2o3OWg4ZHV0MDFrdjM3b2FvcXFqdmtidiJ9.oULZ0ljtFZqMHFDbyvkwVQ';
 
-const RED = '#CA4C4C';
-const YELLOW = '#E2B145';
 
-const clusterLayer = {
-  id: 'clusters',
-  type: 'circle',
-  source: 'communities',
-  filter: ['has', 'point_count'],
-  paint: {
-    'circle-color': RED,
-    'circle-radius': 15
-  }
-};
-
-const clusterCountLayer = {
-  id: 'cluster-count',
-  type: 'symbol',
-  source: 'communities',
-  filter: ['has', 'point_count'],
-  layout: {
-    'text-field': '{point_count_abbreviated}',
-    'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-    'text-size': 12
-  }
-};
-
-const unclusteredCommunitiesLayer = {
-  id: 'unclusteredCommunities',
-  type: 'symbol',
-  minzoom: 5,
-  source: 'communities',
-  filter: ['!has', 'point_count'],
-  layout: {
-    'text-field': '{name}',
-    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-    'text-offset': [0, -2.2]
-  }
-};
-
-const unclusteredCommunitiesPointLayer = {
-  id: 'unclusteredCommunities-point',
-  type: 'circle',
-  source: 'communities',
-  filter: ['!has', 'point_count'],
-  paint: {
-    'circle-color': RED,
-    'circle-radius': 7,
-    'circle-stroke-width': 1,
-    'circle-stroke-color': '#fff'
-  }
-};
-
-const randomCommunityCoordinates = () =>
-  communities[(Math.random() * communities.length) | 0].location.coordinates;
 
 const run = () => {
   const map = new mapboxgl.Map({
@@ -80,48 +28,12 @@ const run = () => {
   );
 
   map.on('load', () => {
-    map.addSource('communities', communitiesDataSource);
-    map.addLayer(clusterLayer);
-    map.addLayer(clusterCountLayer);
-    map.addLayer(unclusteredCommunitiesPointLayer);
-    map.addLayer(unclusteredCommunitiesLayer);
+    configureCommunities(map);
+    configureConferences(map);
 
     map.on('click', function(e) {
       console.log(JSON.stringify([e.lngLat.lng, e.lngLat.lat]));
     });
-
-    map.on('click', 'clusters', e => {
-      map.flyTo({
-        zoom: map.getZoom() + 2,
-        center: e.features[0].geometry.coordinates
-      });
-    });
-
-    const showPopup = e => {
-      const community = e.features[0];
-      map.flyTo({
-        zoom: Math.max(map.getZoom(), 8),
-        center: community.geometry.coordinates
-      });
-
-      const popup = createPopup(community);
-
-      new mapboxgl.Popup()
-        .setLngLat(community.geometry.coordinates)
-        .setDOMContent(popup)
-        .addTo(map);
-    };
-    map.on('click', 'unclusteredCommunities-point', showPopup);
-    map.on('click', 'unclusteredCommunities', showPopup);
-
-    const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
-    const hidePointer = () => (map.getCanvas().style.cursor = '');
-
-    map.on('mouseenter', 'clusters', showPointer);
-    map.on('mouseenter', 'unclusteredCommunities-point', showPointer);
-
-    map.on('mouseleave', 'clusters', hidePointer);
-    map.on('mouseleave', 'unclusteredCommunities-point', hidePointer);
   });
 };
 

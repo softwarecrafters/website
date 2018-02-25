@@ -2,3 +2,4 @@ communities.json
 node_modules
 target/map.js*
 target/style.css
+conferences.json

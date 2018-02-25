@@ -1,0 +1,64 @@
+{
+  "title": "Schema for Conference JSON Files",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of your community",
+      "type": "string"
+    },
+    "url": {
+      "description": "URL leading to further information about your conference",
+      "type": "string"
+    },
+    "code-of-conduct": {
+      "description": "URL to your code of conduct",
+      "type": "string"
+    },
+    "next-date": {
+      "description": "The next time your conference is taking place",
+      "type": "object",
+      "properties": {
+        "start": {
+          "description": "The day your conference starts in YYYY-MM-DD format",
+          "$ref": "#/definitions/date"
+        },
+        "end": {
+          "description": "The day your conference ends in YYYY-MM-DD format",
+          "$ref": "#/definitions/date"
+        }
+      },
+      "required": ["start", "end"],
+      "additionalProperties": false
+    },
+    "location": {
+      "description":
+        "Information about where to place your conference on the map",
+      "type": "object",
+      "properties": {
+        "city": { "type": "string", "description": "Not used right now" },
+        "coordinates": {
+          "type": "array",
+          "description":
+            "Long/Lat values of where to place your community. ATTENTION: Long comes first, this is different from how GMaps/OSM show them",
+          "additionalItems": false,
+          "minItems": 2,
+          "maxItems": 2,
+          "items": [
+            { "type": "number", "title": "Longitude" },
+            { "type": "number", "title": "Latitude" }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": ["coordinates"]
+    }
+  },
+  "additionalProperties": false,
+  "required": ["name", "url", "location"],
+  "definitions": {
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}$"
+    }
+  }
+}
