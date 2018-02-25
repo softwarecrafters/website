@@ -1,13 +1,14 @@
 {
   "presets": [
     [
-      "es2015",
+      "env",
       {
-        "modules": false
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
       }
     ]
   ],
-  "plugins": [
-    "external-helpers"
-  ]
+  "plugins": ["external-helpers"]
 }

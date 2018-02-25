@@ -15,6 +15,11 @@ nav {
   background: #ca4c4c;
 }
 
+strong {
+  // materialize makes this 500 -.-
+  font-weight: bold !important;
+}
+
 #swcraft-communities {
   #sidenav-overlay,
   .side-nav {
