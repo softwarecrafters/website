@@ -30,7 +30,7 @@
     "rollup-plugin-json": "^2.3.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-scss": "^0.4.0",
-    "serve": "^6.1.0"
+    "serve": "^6.5.0"
   },
   "dependencies": {
     "js-joda": "^1.6.2",
