@@ -1,0 +1,9 @@
+{
+  "name": "SoCraTes Day Berlin",
+  "url": "https://www.meetup.com/Software-Craftsmanship-Berlin/",
+  "code-of-conduct":
+    "https://github.com/swkBerlin/resources/blob/master/safe_environment.md",
+  "location": {
+    "coordinates": [13.39782, 52.494]
+  }
+}

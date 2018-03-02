@@ -1,0 +1,12 @@
+{
+  "name": "SoCraTes Switzerland",
+  "url": "https://www.socrates-ch.org/",
+  "code-of-conduct": "https://www.socrates-ch.org/#code-of-conduct",
+  "next-date": {
+    "start": "2018-03-15",
+    "end": "2018-03-18"
+  },
+  "location": {
+    "coordinates": [10.23997, 46.79267]
+  }
+}
