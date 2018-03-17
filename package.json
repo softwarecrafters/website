@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "build": "npm-run-all test build:communities build:conferences build:js",
-    "build:communities": "node scripts/build-communities.js",
-    "build:conferences": "node scripts/build-conferences.js",
+    "build:communities": "node scripts/build-communities.js && cp communities.json target/",
+    "build:conferences": "node scripts/build-conferences.js && cp conferences.json target/",
     "build:js": "rollup -c rollup.config.js",
     "test": "node scripts/test-communities.js && node scripts/test-conferences.js",
     "watch:js": "rollup --watch -c rollup.config.js",
