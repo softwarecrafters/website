@@ -1,0 +1,4 @@
+/communities.json
+  Access-Control-Allow-Origin: *
+/conferences.json
+  Access-Control-Allow-Origin: *
