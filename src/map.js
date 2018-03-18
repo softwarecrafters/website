@@ -14,7 +14,7 @@ mapboxgl.accessToken =
 const run = () => {
   const map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/rradczewski/cj79d81fz81sc2qtk1i1y4hqv',
+    style: 'mapbox://styles/rradczewski/cjex2e3sa03hc2sqvkct0qkr6',
     center: randomCommunityCoordinates(),
     zoom: 2
   });
