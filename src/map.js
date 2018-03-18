@@ -24,7 +24,7 @@ const run = () => {
       trackUserLocation: false,
       showUserLocation: false,
       fitBoundsOptions: { maxZoom: 7 }
-    })
+    }), 'top-left'
   );
   map.addControl(new MapboxGeocoder({
       accessToken: mapboxgl.accessToken

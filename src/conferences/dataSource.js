@@ -38,4 +38,8 @@ const dataSource = {
   }
 };
 
+export const nextConferences = dataSource.data.features
+  .filter(feature => feature.properties.isUpcoming)
+  .sort((a, b) => a.properties.daysUntil-b.properties.daysUntil)
+
 export default dataSource;

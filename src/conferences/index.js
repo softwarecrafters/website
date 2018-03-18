@@ -1,7 +1,7 @@
 import mapboxgl from 'mapbox-gl';
 import { BLUE } from '../colors';
 import createPopup from './createPopup';
-import conferencesDataSource from './dataSource';
+import conferencesDataSource, { nextConferences } from './dataSource';
 
 const clusterLayer = {
   id: 'conference-clusters',
@@ -52,6 +52,38 @@ const unclusteredConferencesPointLayer = {
   }
 };
 
+const showPopup = (e, map) => {
+  const conference = e.features[0];
+  map.flyTo({
+    zoom: Math.max(map.getZoom(), 8),
+    center: conference.geometry.coordinates
+  });
+
+  const popup = createPopup(conference);
+
+  new mapboxgl.Popup()
+    .setLngLat(conference.geometry.coordinates)
+    .setDOMContent(popup)
+    .addTo(map);
+};
+
+const updateConferencesList = map => {
+  const list = document.querySelector('#conferences-list');
+  const nextFive = nextConferences.slice(0, 5);
+  nextFive.forEach(conference => {
+    const li = document.createElement('li');
+    const link = document.createElement('a');
+    link.innerText = conference.properties.name;
+    link.href = '#';
+    link.addEventListener('click', () =>
+      showPopup({ features: [conference] }, map)
+    );
+    li.appendChild(link);
+    li.append(` (${conference.properties.start})`);
+    list.appendChild(li);
+  });
+};
+
 export default map => {
   map.addSource('conferences', conferencesDataSource);
   map.addLayer(clusterLayer);
@@ -66,22 +98,8 @@ export default map => {
     });
   });
 
-  const showPopup = e => {
-    const conference = e.features[0];
-    map.flyTo({
-      zoom: Math.max(map.getZoom(), 8),
-      center: conference.geometry.coordinates
-    });
-
-    const popup = createPopup(conference);
-
-    new mapboxgl.Popup()
-      .setLngLat(conference.geometry.coordinates)
-      .setDOMContent(popup)
-      .addTo(map);
-  };
-  map.on('click', 'unclustered-conferences-point', showPopup);
-  map.on('click', 'unclustered-conferences', showPopup);
+  map.on('click', 'unclustered-conferences-point', e => showPopup(e, map));
+  map.on('click', 'unclustered-conferences', e => showPopup(e, map));
 
   const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
   const hidePointer = () => (map.getCanvas().style.cursor = '');
@@ -91,4 +109,6 @@ export default map => {
 
   map.on('mouseleave', 'conference-clusters', hidePointer);
   map.on('mouseleave', 'unclustered-conferences-point', hidePointer);
+
+  updateConferencesList(map);
 };

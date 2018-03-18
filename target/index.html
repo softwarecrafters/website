@@ -46,14 +46,14 @@
   <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="vendor/materialize.min.css">
   <link rel='stylesheet' href='./style.css'>
+  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 </head>
 <body id="swcraft-communities">
   <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.min.js'></script>
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
   <nav>
     <div class="nav-wrapper">
-      <a href="./" id="swcraft-title" class="brand-logo center">Software Craft Communities</a>
+      <a href="./" id="swcraft-title" class="brand-logo center">Software Crafters</a>
       <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars"></i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><a href="http://slack.softwarecrafters.org/"><i class="fa fa-slack">&nbsp;</i>Slack</a></li>
@@ -68,8 +68,15 @@
       </ul>
     </div>
   </nav>
-  <div id="map"></div>
-  <a href="#imprint" class="modal-trigger" id="imprint-link">Imprint</a>
+  <div id="map-container">
+    <div id="map"></div>
+    <div class='map-overlay' id='conferences-overlay'>
+      <h2 id="conferences-title">Next conferences</h2>
+      <ul id="conferences-list">
+      </ul>
+    </div>
+    <a href="#imprint" class="modal-trigger" id="imprint-link">Imprint</a>
+  </div>
 
   <div id="imprint" class="modal">
     <div class="modal-content">
