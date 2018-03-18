@@ -26,6 +26,9 @@ const run = () => {
       fitBoundsOptions: { maxZoom: 7 }
     })
   );
+  map.addControl(new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken
+  }), 'top-left');
 
   map.on('load', () => {
     configureCommunities(map);

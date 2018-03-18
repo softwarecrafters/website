@@ -34,7 +34,7 @@ strong {
 
   @include desktop {
     font-size: 2.1rem;
-    line-height: 56px;
+    line-height: 64px;
     padding: 0;
   }
 }
@@ -48,6 +48,15 @@ strong {
 
   @include desktop {
     top: 64px;
+  }
+
+  input {
+    box-sizing: border-box !important;
+    &:focus {
+      box-shadow: none;
+      outline: thin-dotted\8;
+      border-bottom: none;
+    }
   }
 }
 
