@@ -1,0 +1,12 @@
+{
+  "name": "Software Engineering Camp",
+  "url": "https://swe-camp.de/",
+  "next-date": {
+    "start": "2018-11-16",
+    "end": "2018-11-18"
+  },
+  "location": {
+    "city": "Erlangen",
+    "coordinates": [11.022736783750133,49.54406928580852]
+  }
+}
