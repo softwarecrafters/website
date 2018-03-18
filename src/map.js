@@ -3,12 +3,12 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import configureCommunities from './communities';
 import configureConferences from './conferences';
+import configureCraftersGeocoder from './craftersGeocoder';
 
 import randomCommunityCoordinates from './communities/randomCommunity';
 
 mapboxgl.accessToken =
   'pk.eyJ1IjoicnJhZGN6ZXdza2kiLCJhIjoiY2o3OWg4ZHV0MDFrdjM3b2FvcXFqdmtidiJ9.oULZ0ljtFZqMHFDbyvkwVQ';
-
 
 
 const run = () => {
@@ -23,16 +23,16 @@ const run = () => {
     new mapboxgl.GeolocateControl({
       trackUserLocation: false,
       showUserLocation: false,
-      fitBoundsOptions: { maxZoom: 7 }
+      fitBoundsOptions: {
+        maxZoom: 7
+      }
     }), 'top-left'
   );
-  map.addControl(new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken
-  }), 'top-left');
 
   map.on('load', () => {
     configureCommunities(map);
     configureConferences(map);
+    configureCraftersGeocoder(map);
 
     map.on('click', function(e) {
       console.log(JSON.stringify([e.lngLat.lng, e.lngLat.lat]));
