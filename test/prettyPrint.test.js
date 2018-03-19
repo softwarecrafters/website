@@ -1,10 +1,10 @@
 import prettyPrint from '../src/prettyPrint';
 
-test('When conference is over a month away - only shows months', () => {
+test('When conference is over a month away - shows months', () => {
   expect(prettyPrint(56)).toEqual("2 months");
 });
 
-test('When conference is over 2 month away show "2 months"', () => {
+test('When conference is slightly over 1 month away show "1 month"', () => {
   expect(prettyPrint(35)).toEqual("1 month");
 });
 
