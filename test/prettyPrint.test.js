@@ -5,7 +5,7 @@ test('When conference is over a month away - only shows months', () => {
 });
 
 test('When conference is over 2 month away show "2 months"', () => {
-  expect(prettyPrint(62)).toEqual("2 months");
+  expect(prettyPrint(35)).toEqual("1 month");
 });
 
 test('When there is exactly one day left show "1 day"', () => {
