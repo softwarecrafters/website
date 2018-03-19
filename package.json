@@ -12,6 +12,7 @@
     "build:conferences": "node scripts/build-conferences.js && cp conferences.json target/",
     "build:js": "rollup -c rollup.config.js",
     "test": "node scripts/test-communities.js && node scripts/test-conferences.js",
+    "test:js": "jest",
     "watch:js": "rollup --watch -c rollup.config.js",
     "watch:serve": "serve -o target/",
     "watch": "npm-run-all build:communities build:conferences -p watch:serve watch:js"
@@ -19,11 +20,14 @@
   "devDependencies": {
     "ajv": "^5.2.2",
     "babel-core": "^6.26.0",
+    "babel-jest": "^23.0.0-alpha.0",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "glob": "^7.1.2",
+    "jest": "^22.4.2",
     "npm-run-all": "^4.1.1",
+    "regenerator-runtime": "^0.11.1",
     "rollup": "^0.56.3",
     "rollup-plugin-babel": "^3.0.2",
     "rollup-plugin-commonjs": "^8.2.1",

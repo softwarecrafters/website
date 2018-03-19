@@ -1,4 +1,4 @@
-import jsJoda from 'js-joda';
+import prettyPrint from '../prettyPrint';
 
 const createCocText = conference =>
   conference.properties.coc
@@ -18,7 +18,7 @@ const createDateText = conference => {
 
   const dateFormatted =
     (singleDay ? start : `${start} - ${end}`) +
-    (isUpcoming ? ` (in ${daysUntil} days)` : '');
+    (isUpcoming ? ` (in ${prettyPrint(daysUntil)})` : '');
 
   if (!isUpcoming) {
     return `<p><strong>Last:&nbsp;</strong>${dateFormatted}`;
