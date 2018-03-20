@@ -18,7 +18,7 @@ const createDateText = conference => {
 
   const dateFormatted =
     (singleDay ? start : `${start} - ${end}`) +
-    (isUpcoming ? ` (in ${prettyPrint(daysUntil)})` : '');
+    (isUpcoming ? ` (in ${prettyPrint(daysUntil).replace(' ', '&nbsp;'})` : '');
 
   if (!isUpcoming) {
     return `<p><strong>Last:&nbsp;</strong>${dateFormatted}`;
