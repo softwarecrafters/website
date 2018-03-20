@@ -14,7 +14,7 @@ export default map => {
         feature.properties.name.toLowerCase().includes(query.toLowerCase())
       )
       .map(feature => ({
-        id: feature.properties.name,
+        id: feature.properties.id,
         text: feature.properties.name,
         place_name: feature.properties.name,
         place_type: 'place',
@@ -22,11 +22,8 @@ export default map => {
       }));
   };
 
-  map.addControl(
-    new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      localGeocoder: craftersGeocoder
-    }),
-    'top-left'
-  );
+  return new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    localGeocoder: craftersGeocoder
+  });
 };

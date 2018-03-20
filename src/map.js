@@ -3,7 +3,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 import configureCommunities from './communities';
 import configureConferences from './conferences';
-import configureCraftersGeocoder from './craftersGeocoder';
+import createCraftersGeocoder from './craftersGeocoder';
 
 import randomCommunityCoordinates from './communities/randomCommunity';
 
@@ -30,9 +30,11 @@ const run = () => {
   );
 
   map.on('load', () => {
-    configureCommunities(map);
-    configureConferences(map);
-    configureCraftersGeocoder(map);
+    const geocoder = createCraftersGeocoder(map);
+    map.addControl(geocoder, 'top-left');
+
+    configureCommunities(map, geocoder);
+    configureConferences(map, geocoder);
 
     map.on('click', function(e) {
       console.log(JSON.stringify([e.lngLat.lng, e.lngLat.lat]));

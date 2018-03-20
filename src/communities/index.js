@@ -1,5 +1,8 @@
 import mapboxgl from 'mapbox-gl';
-import { RED, YELLOW } from '../colors';
+import {
+  RED,
+  YELLOW
+} from '../colors';
 import createPopup from './createPopup';
 import communitiesDataSource from './dataSource';
 
@@ -52,7 +55,34 @@ const unclusteredCommunitiesPointLayer = {
   }
 };
 
-export default map => {
+const updateLocation = community =>
+  window.history.pushState({},
+    document.title,
+    window.location.pathname +
+    window.location.search +
+    '#' +
+    community.properties.id
+  );
+
+const showPopup = (community, map) => {
+  const popup = createPopup(community);
+
+  new mapboxgl.Popup()
+    .setLngLat(community.geometry.coordinates)
+    .setDOMContent(popup)
+    .addTo(map);
+};
+
+const flyTo = (community, map) => {
+  map.flyTo({
+    zoom: Math.max(map.getZoom(), 8),
+    center: community.geometry.coordinates
+  });
+  updateLocation(community);
+  showPopup(community, map);
+};
+
+export default (map, geocoder) => {
   map.addSource('communities', communitiesDataSource);
   map.addLayer(clusterLayer);
   map.addLayer(clusterCountLayer);
@@ -66,22 +96,10 @@ export default map => {
     });
   });
 
-  const showPopup = e => {
-    const community = e.features[0];
-    map.flyTo({
-      zoom: Math.max(map.getZoom(), 8),
-      center: community.geometry.coordinates
-    });
-
-    const popup = createPopup(community);
-
-    new mapboxgl.Popup()
-      .setLngLat(community.geometry.coordinates)
-      .setDOMContent(popup)
-      .addTo(map);
-  };
-  map.on('click', 'unclustered-communities-point', showPopup);
-  map.on('click', 'unclustered-communities', showPopup);
+  map.on('click', 'unclustered-communities-point', e =>
+    flyTo(e.features[0], map)
+  );
+  map.on('click', 'unclustered-communities', e => flyTo(e.features[0], map));
 
   const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
   const hidePointer = () => (map.getCanvas().style.cursor = '');
@@ -91,4 +109,26 @@ export default map => {
 
   map.on('mouseleave', 'community-clusters', hidePointer);
   map.on('mouseleave', 'unclustered-communities-point', hidePointer);
+
+  geocoder.on('result', ({
+    result
+  }) => {
+    const community = communitiesDataSource.data.features.find(
+      feature => feature.properties.id === result.id
+    );
+    if (community) {
+      updateLocation(community);
+      showPopup(community, map);
+    }
+  });
+
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    const community = communitiesDataSource.data.features.find(
+      feature => feature.properties.id === id
+    );
+    if (community) {
+      flyTo(community);
+    }
+  }
 };

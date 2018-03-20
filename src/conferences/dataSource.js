@@ -1,4 +1,5 @@
 import conferences from '../../conferences.json';
+import slugify from 'slugify';
 import jsJoda from 'js-joda';
 const { LocalDate, ChronoUnit } = jsJoda;
 
@@ -7,8 +8,9 @@ const dataSource = {
   cluster: true,
   data: {
     type: 'FeatureCollection',
-    features: conferences.map(conference => {
+    features: conferences.map((conference, i) => {
       const props = {
+        id: slugify(`conference-${i}-${conference.name}`).toLowerCase(),
         url: conference.url,
         name: conference.name,
         coc: conference['code-of-conduct']

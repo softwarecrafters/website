@@ -52,19 +52,32 @@ const unclusteredConferencesPointLayer = {
   }
 };
 
-const showPopup = (e, map) => {
-  const conference = e.features[0];
-  map.flyTo({
-    zoom: Math.max(map.getZoom(), 8),
-    center: conference.geometry.coordinates
-  });
+const updateLocation = conference =>
+  window.history.pushState(
+    {},
+    document.title,
+    window.location.pathname +
+      window.location.search +
+      '#' +
+      conference.properties.id
+  );
 
+const showPopup = (conference, map) => {
   const popup = createPopup(conference);
 
   new mapboxgl.Popup()
     .setLngLat(conference.geometry.coordinates)
     .setDOMContent(popup)
     .addTo(map);
+};
+
+const flyTo = (conference, map) => {
+  map.flyTo({
+    zoom: Math.max(map.getZoom(), 8),
+    center: conference.geometry.coordinates
+  });
+  updateLocation(conference);
+  showPopup(conference, map);
 };
 
 const updateConferencesList = map => {
@@ -74,17 +87,18 @@ const updateConferencesList = map => {
     const li = document.createElement('li');
     const link = document.createElement('a');
     link.innerText = conference.properties.name;
-    link.href = '#';
-    link.addEventListener('click', () =>
-      showPopup({ features: [conference] }, map)
-    );
+    link.href = `#${conference.properties.id}`;
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      flyTo(conference, map);
+    });
     li.appendChild(link);
     li.append(` (${conference.properties.start})`);
     list.appendChild(li);
   });
 };
 
-export default map => {
+export default (map, geocoder) => {
   map.addSource('conferences', conferencesDataSource);
   map.addLayer(clusterLayer);
   map.addLayer(clusterCountLayer);
@@ -98,8 +112,10 @@ export default map => {
     });
   });
 
-  map.on('click', 'unclustered-conferences-point', e => showPopup(e, map));
-  map.on('click', 'unclustered-conferences', e => showPopup(e, map));
+  map.on('click', 'unclustered-conferences-point', e =>
+    flyTo(e.features[0], map)
+  );
+  map.on('click', 'unclustered-conferences', e => flyTo(e.features[0], map));
 
   const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
   const hidePointer = () => (map.getCanvas().style.cursor = '');
@@ -110,5 +126,24 @@ export default map => {
   map.on('mouseleave', 'conference-clusters', hidePointer);
   map.on('mouseleave', 'unclustered-conferences-point', hidePointer);
 
+  geocoder.on('result', ({ result }) => {
+    const conference = conferencesDataSource.data.features.find(
+      feature => feature.properties.id === result.id
+    );
+    if (conference) {
+      updateLocation(conference);
+      showPopup(conference, map);
+    }
+  });
+
   updateConferencesList(map);
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    const conference = conferencesDataSource.data.features.find(
+      feature => feature.properties.id === id
+    );
+    if (conference) {
+      flyTo(conference, map);
+    }
+  }
 };
