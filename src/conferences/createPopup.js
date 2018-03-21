@@ -17,8 +17,8 @@ const createDateText = conference => {
   } = conference.properties;
 
   const dateFormatted =
-    (singleDay ? start : `${start} - ${end}`) +
-    (isUpcoming ? ` (in ${prettyPrint(daysUntil).replace(' ', '&nbsp;')})` : '');
+    (singleDay ? `<span class="nowrap">${start}</span>` : `<span class="nowrap">${start}</span> - <span class="nowrap">${end}</span>`) +
+    (isUpcoming ? ` <span class="nowrap">(in ${prettyPrint(daysUntil)})</span>` : '');
 
   if (!isUpcoming) {
     return `<p><strong>Last:&nbsp;</strong>${dateFormatted}`;
