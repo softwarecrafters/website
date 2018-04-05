@@ -1,0 +1,7 @@
+# Redirect everything to HTTPS
+http://softwarecrafters.org/* 		https://www.softwarecrafters.org/:splat 301!
+http://www.softwarecrafters.org/* 	https://www.softwarecrafters.org/:splat 301!
+http://softwarecraft.org/* 			https://www.softwarecrafters.org/:splat 301!
+http://www.softwarecraft.org/* 		https://www.softwarecrafters.org/:splat 301!
+http://softwarecrafting.org/* 		https://www.softwarecrafters.org/:splat 301!
+http://www.softwarecrafting.org/* 	https://www.softwarecrafters.org/:splat 301!
