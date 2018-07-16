@@ -1,8 +1,12 @@
 {
   "name": "SoCraTes Day Berlin",
-  "url": "https://www.meetup.com/Software-Craftsmanship-Berlin/",
+  "url": "https://twitter.com/socratesday_ber",
   "code-of-conduct":
     "https://github.com/swkBerlin/resources/blob/master/safe_environment.md",
+  "next-date": {
+    "start": "2018-09-15",
+    "end": "2018-09-15"
+  },  
   "location": {
     "coordinates": [13.39782, 52.494]
   }
