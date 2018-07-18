@@ -2,6 +2,10 @@
   "name": "SoCraTes Day Linz",
   "url": "http://socrates-conference.at/",
   "code-of-conduct": "http://socrates-conference.at/en/code-of-conduct/",
+  "next-date": {
+    "start": "2018-10-12",
+    "end": "2018-10-13"
+  },
   "location": {
     "coordinates": [14.28827, 48.29074]
   }
