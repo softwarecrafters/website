@@ -1,6 +1,10 @@
 {
   "name": "Software Craftsmanship Unconference",
   "url": "http://scunconf.com/",
+  "next-date": {
+    "start": "2018-09-21",
+    "end": "2018-09-21"
+  },
   "location": {
     "coordinates": [-84.18671, 34.14901]
   }
