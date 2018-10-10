@@ -15,7 +15,8 @@ const dataSource = {
       properties: {
         id: slugify(`community-${i}-${community.name}`).toLowerCase(),
         url: community.url,
-        name: community.name
+        name: community.name,
+        icon: community.icon
       }
     }))
   }
