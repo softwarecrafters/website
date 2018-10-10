@@ -51,6 +51,11 @@
       },
       "additionalProperties": false,
       "required": ["coordinates"]
+    },
+    "icon": {
+      "description":
+        "The relative url to an icon in 64x64 PNG format. Should be places in /target/icons/",
+      "type": "string"
     }
   },
   "additionalProperties": false,

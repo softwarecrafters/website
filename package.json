@@ -18,6 +18,9 @@
     "watch:serve": "serve -o target/",
     "watch": "npm-run-all build:communities build:conferences -p watch:serve watch:js"
   },
+  "jest": {
+    "testURL": "http://localhost:5000"
+  },
   "devDependencies": {
     "ajv": "^5.2.2",
     "babel-core": "^6.26.0",
