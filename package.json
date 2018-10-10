@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "js-joda": "^1.6.2",
-    "mapbox-gl": "^0.44.1",
+    "mapbox-gl": "^0.50.0-beta.1",
     "slugify": "^1.2.9"
   }
 }

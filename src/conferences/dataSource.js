@@ -10,7 +10,8 @@ const dataSource = {
     type: 'FeatureCollection',
     features: conferences.map((conference, i) => {
       const props = {
-        id: slugify(`conference-${i}-${conference.name}`).toLowerCase(),
+        id: slugify(`conference-${conference.name}`).toLowerCase(),
+        icon: conference.icon,
         url: conference.url,
         name: conference.name,
         coc: conference['code-of-conduct']

@@ -13,7 +13,7 @@ const dataSource = {
         coordinates: community.location.coordinates
       },
       properties: {
-        id: slugify(`community-${i}-${community.name}`).toLowerCase(),
+        id: slugify(`community-${community.name}`).toLowerCase(),
         url: community.url,
         name: community.name,
         icon: community.icon

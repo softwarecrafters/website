@@ -1,5 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import { RED, YELLOW } from "../colors";
+import { loadIcons } from '../loadIcons';
 import createPopup from "./createPopup";
 import communitiesDataSource from "./dataSource";
 
@@ -35,8 +36,13 @@ const unclusteredCommunitiesLayer = {
   layout: {
     "text-field": "{name}",
     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-    "text-offset": [0, 2.2],
+    "text-offset": [0, 1],
+    "text-anchor": "top",
+    "text-ignore-placement": true,
+    "text-allow-overlap": true,
+    "icon-ignore-placement": true,
     "icon-image": "{id}",
+    "icon-allow-overlap": true,
     "icon-anchor": "bottom",
     "icon-offset": [0, -15]
   }
@@ -46,7 +52,7 @@ const unclusteredCommunitiesPointLayer = {
   id: "unclustered-communities-point",
   type: "circle",
   source: "communities",
-  filter: ["all", ["!has", "point_count"]],
+  filter: ["!has", "point_count"],
   paint: {
     "circle-color": RED,
     "circle-radius": 7,
@@ -83,40 +89,8 @@ const flyTo = (community, map) => {
   showPopup(community, map);
 };
 
-const loadIcons = async map => {
-  const communitiesWithIcons = communitiesDataSource.data.features.filter(
-    community => !!community.properties.icon
-  );
-
-  const allPromises = communitiesWithIcons.map(
-    community =>
-      new Promise((resolve, reject) => {
-        map.loadImage(
-          community.properties.icon,
-          (err, data) =>
-            err
-              ? reject(err)
-              : resolve({ id: community.properties.id, imageData: data })
-        );
-      })
-  );
-
-  const loadedIcons = [];
-  for (let promise of allPromises) {
-    try {
-      loadedIcons.push(await promise);
-    } catch (e) {
-      console.error("Error while loading icon", e);
-    }
-  }
-
-  loadedIcons.forEach(icon => {
-    map.addImage(icon.id, icon.imageData);
-  });
-};
-
 export default async (map, geocoder) => {
-  await loadIcons(map);
+  await loadIcons(map, communitiesDataSource);
 
   map.addSource("communities", communitiesDataSource);
   map.addLayer(clusterLayer);
@@ -131,10 +105,24 @@ export default async (map, geocoder) => {
     });
   });
 
-  map.on("click", "unclustered-communities-point", e =>
-    flyTo(e.features[0], map)
-  );
-  map.on("click", "unclustered-communities", e => flyTo(e.features[0], map));
+  map.on("click", e => {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: [
+        "unclustered-communities",
+        "unclustered-communities-point",
+        "unclustered-conferences",
+        "unclustered-conferences-point"
+      ]
+    });
+
+    if (
+      features.length === 1 &&
+      (features[0].layer.id === "unclustered-communities" ||
+        features[0].layer.id === "unclustered-communities-point")
+    ) {
+      flyTo(features[0], map);
+    }
+  });
 
   const showPointer = () => (map.getCanvas().style.cursor = "pointer");
   const hidePointer = () => (map.getCanvas().style.cursor = "");

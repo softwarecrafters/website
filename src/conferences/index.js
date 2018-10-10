@@ -1,5 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import { BLUE } from "../colors";
+import { loadIcons } from "../loadIcons";
 import createPopup from "./createPopup";
 import conferencesDataSource, { nextConferences } from "./dataSource";
 
@@ -35,7 +36,15 @@ const unclusteredConferencesLayer = {
   layout: {
     "text-field": "{name}",
     "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
-    "text-offset": [0, -2.2]
+    "text-offset": [0, 1],
+    "text-ignore-placement": true,
+    "text-allow-overlap": true,
+    "text-anchor": "top",
+    "icon-ignore-placement": true,
+    "icon-allow-overlap": true,
+    "icon-image": "{id}",
+    "icon-anchor": "bottom",
+    "icon-offset": [0, -15]
   }
 };
 
@@ -111,7 +120,9 @@ const updateConferencesList = map => {
     });
 };
 
-export default (map, geocoder) => {
+export default async (map, geocoder) => {
+  await loadIcons(map, conferencesDataSource);
+
   map.addSource("conferences", conferencesDataSource);
   map.addLayer(clusterLayer);
   map.addLayer(clusterCountLayer);
@@ -125,10 +136,24 @@ export default (map, geocoder) => {
     });
   });
 
-  map.on("click", "unclustered-conferences-point", e =>
-    flyTo(e.features[0], map)
-  );
-  map.on("click", "unclustered-conferences", e => flyTo(e.features[0], map));
+  map.on("click", e => {
+    const features = map.queryRenderedFeatures(e.point, {
+      layers: [
+        "unclustered-communities",
+        "unclustered-communities-point",
+        "unclustered-conferences",
+        "unclustered-conferences-point"
+      ]
+    });
+
+    if (
+      features.length === 1 &&
+      (features[0].layer.id === "unclustered-conferences" ||
+        features[0].layer.id === "unclustered-conferences-point")
+    ) {
+      flyTo(features[0], map);
+    }
+  });
 
   const showPointer = () => (map.getCanvas().style.cursor = "pointer");
   const hidePointer = () => (map.getCanvas().style.cursor = "");

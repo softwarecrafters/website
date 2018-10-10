@@ -6,8 +6,9 @@
   "next-date": {
     "start": "2018-09-15",
     "end": "2018-09-15"
-  },  
+  },
   "location": {
-    "coordinates": [13.39782, 52.494]
-  }
+    "coordinates": [13.422387745347237,52.51776926685366]
+  },
+  "icon": "icons/socratesdayber.png"
 }
