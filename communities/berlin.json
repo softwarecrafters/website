@@ -4,5 +4,6 @@
   "location": {
     "city": "Berlin, Germany",
     "coordinates": [13.391765857937543, 52.518358457921096]
-  }
+  },
+  "icon": "icons/berlin.png"
 }
