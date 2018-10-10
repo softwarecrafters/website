@@ -50,10 +50,9 @@ export default conference => {
   const icon = createIcon(conference);
 
   div.innerHTML = `
-    ${icon}
     <h1><a target="_blank" href="${conference.properties.url}">${
     conference.properties.name
-  }</a></h1>
+  }</a>${icon}</h1>
     ${dateLine}
     ${cocLine}
   `;
