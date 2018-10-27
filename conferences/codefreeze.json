@@ -1,7 +1,11 @@
 {
   "name": "Codefreeze",
-  "url": "http://www.codefreeze.fi/",
+  "url": "https://www.codefreeze.fi/",
   "location": {
     "coordinates": [27.4315, 68.3752]
-  }
+  },
+  "next-date": {
+    "start": "2019-01-05",
+    "end": "2019-05-12"
+  },
 }
