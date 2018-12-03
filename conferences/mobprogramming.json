@@ -1,0 +1,12 @@
+{
+  "name": "Mob Programming New England Conference",
+  "url": "https://www.mobprogrammingnewengland.com/",
+  "code-of-conduct": "https://www.agilenewengland.org/index.php?option=com_content&view=article&id=503&Itemid=586",
+  "next-date": {
+    "start": "2019-04-11",
+    "end": "2019-04-12"
+  },
+  "location": {
+    "coordinates": [42.484489,-71.1937167]
+  }
+}
