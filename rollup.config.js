@@ -8,13 +8,14 @@ export default {
   input: "src/index.js",
   output: {
     file: "target/map.js",
-    format: "cjs"
+    format: "iife"
   },
   plugins: [
     scss({ output: "target/style.css" }),
     json(),
     babel({
-      exclude: "node_modules/**"
+      exclude: "node_modules/**",
+      runtimeHelpers: true
     }),
     nodeResolve({
       jsnext: true,

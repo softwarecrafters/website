@@ -1,26 +1,24 @@
 {
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": ["last 2 versions", "safari >= 7"]
+        }
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-external-helpers", "@babel/plugin-transform-runtime"],
+
   "env": {
     "test": {
       "presets": [
         [
-          "env"
+          "@babel/preset-env"
         ]
       ],
       "plugins": []
     },
-    "development": {
-      "presets": [
-        [
-          "env",
-          {
-            "modules": false,
-            "targets": {
-              "browsers": ["last 2 versions", "safari >= 7"]
-            }
-          }
-        ]
-      ],
-      "plugins": ["external-helpers"]
-    }
   },
 }
