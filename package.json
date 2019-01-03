@@ -7,16 +7,17 @@
   "author": "Raimo Radczewski <raimoradczewski@googlemail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "npm-run-all test build:communities build:conferences build:js",
+    "build": "npm-run-all test build:communities build:conferences build:conferences-ics build:js",
     "build:communities": "node scripts/build-communities.js && cp communities.json target/",
     "build:conferences": "node scripts/build-conferences.js && cp conferences.json target/",
+    "build:conferences-ics": "node scripts/build-conferences-ics.js && cp conferences.ics target/",
     "build:js": "rollup -c rollup.config.js",
     "test": "npm-run-all test:data test:js",
     "test:data": "node scripts/test-communities.js && node scripts/test-conferences.js",
     "test:js": "jest",
     "watch:js": "rollup --watch -c rollup.config.js",
     "watch:serve": "serve target/",
-    "watch": "npm-run-all build:communities build:conferences -p watch:serve watch:js"
+    "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p watch:serve watch:js"
   },
   "jest": {
     "testURL": "http://localhost:5000"
@@ -43,6 +44,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
+    "ics": "^2.10.0",
     "js-joda": "^1.9.2",
     "mapbox-gl": "^0.51.0",
     "slugify": "^1.3.3"
