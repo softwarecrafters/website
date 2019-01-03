@@ -59,7 +59,7 @@
     }
   },
   "additionalProperties": false,
-  "required": ["name", "url", "location"],
+  "required": ["name", "url", "location", "code-of-conduct"],
   "definitions": {
     "date": {
       "type": "string",
