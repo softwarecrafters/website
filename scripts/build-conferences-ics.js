@@ -33,10 +33,11 @@ const { error, value } = ics.createEvents(
 
     return {
       title: conference.name,
+      description: conference.url,
+      url: conference.url,
       start,
       end,
       geo,
-      url: conference.url
     };
   })
 );
