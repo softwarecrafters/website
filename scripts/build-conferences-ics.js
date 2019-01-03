@@ -47,7 +47,17 @@ if (error) {
   process.exit(1);
 }
 
+let lines = value.split("\r\n");
+
+const withCalendarInfos = [
+  ...lines.slice(0, 3),
+  "X-WR-CALNAME:Software Crafting Conferences",
+  "X-WR-CALDESC:A list of upcoming Software Crafting conferences worldwide, sourced from www.softwarecrafters.org",
+  ...lines.slice(3)
+].join("\r\n");
+
+
 fs.writeFileSync(
   path.resolve(__dirname, '../conferences.ics'),
-  value
+  withCalendarInfos
 );
