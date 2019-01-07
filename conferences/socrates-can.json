@@ -1,6 +1,7 @@
 {
   "name": "SoCraTes Canaries",
   "url": "https://www.socracan.com/",
+  "code-of-conduct": "http://socracan.com/#coc",
   "next-date": {
     "start": "2019-04-25",
     "end": "2019-04-28"
