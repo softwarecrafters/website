@@ -1,0 +1,13 @@
+{
+  "name": "AgileCrete",
+  "url": "https://agilecrete.org/",
+  "location": {
+    "city": "Kolymvari",
+    "coordinates": [23.77668015917692,35.55218784292704]
+  },
+  "next-date": {
+    "start": "2019-09-05",
+    "end": "2019-09-07"
+  },
+  "icon": "icons/agilecrete_favicon_64.png"
+}
