@@ -15,7 +15,7 @@ const conferences = conferenceFiles.map(file => {
 
 fs.writeFileSync(
   path.resolve(__dirname, '../conferences.js'),
-  ˋ(function() {
+  `(function() {
     typeof window.softwarecraft_conferences_callback === 'function' && window.softwarecraft_conferences_callback(${JSON.stringify(conferences, undefined, 2)});
-  })();ˋ
+  })();`
 );
