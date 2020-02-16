@@ -1,10 +1,10 @@
 {
   "name": "SoCraTes UK",
-  "url": "http://socratesuk.org/",
-  "code-of-conduct": "http://confcodeofconduct.com/",
+  "url": "https://socratesuk.org/",
+  "code-of-conduct": "https://socratesuk.org/code_of_conduct.html",
   "next-date": {
-    "start": "2018-06-07",
-    "end": "2018-06-10"
+    "start": "2020-06-04",
+    "end": "2020-06-07"
   },
   "location": {
     "coordinates": [-0.3952, 51.2127]

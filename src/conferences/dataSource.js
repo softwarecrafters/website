@@ -1,7 +1,6 @@
 import conferences from '../../conferences.json';
 import slugify from 'slugify';
-import jsJoda from 'js-joda';
-const { LocalDate, ChronoUnit } = jsJoda;
+import { LocalDate, ChronoUnit } from 'js-joda';
 
 const dataSource = {
   type: 'geojson',

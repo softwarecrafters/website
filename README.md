@@ -38,6 +38,29 @@ If you want to add your local community / conference to the map, please have a l
 
 ![GIF showing how a mouse click logs the coordinates under the map to the console](docs/finding_coordinates.gif)
 
+## 🌐 Showing upcoming conferences on your conference page
+
+A lot of the conferences listed here also list their "sibling"-conferences on their website so your attendees might be inspired to visit another conference in our communities. We highly encourage you to do that and provide a couple of ways of sourcing our data, either live or at build-time of your website:
+
+- [`conferences.json`](https://softwarecrafters.org/conferences.json) contains all conferences (including past conferences right now).
+- [`conferences.js`](https://softwarecrafters.org/conferences.js) is a `jsonp`script that will call the function `window.softwarecraft_conferences_callback` with the exact same data as is contained in `conferences.json`.
+- See [`conferences_schema.json`](./conferences_schema.json) for a JSON-schema of an individual conference. The JSON will always contain an array of these.
+
+### Example code (not tested) 
+
+```html
+<script type="application/javascript">
+window.softwarecraft_conferences_callback = function(conferences) {
+  console.log("Received conferences", conferences);
+  for(let conference of conferences) {
+    document.write(conference.name)
+  }
+}
+</script>
+<script type="application/javascript" src="https://softwarecrafters.org/conferences.js"></script>
+
+``` 
+
 ## 👍 Contributing to the website
 
 TBD

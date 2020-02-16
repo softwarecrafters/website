@@ -1,11 +1,11 @@
 {
   "name": "SoCraTes Day Berlin",
-  "url": "https://twitter.com/socratesday_ber",
+  "url": "https://www.socratesday.berlin",
   "code-of-conduct":
-    "https://github.com/swkBerlin/resources/blob/master/safe_environment.md",
+    "https://www.socratesday.berlin",
   "next-date": {
-    "start": "2018-09-15",
-    "end": "2018-09-15"
+    "start": "2019-09-06",
+    "end": "2019-09-07"
   },
   "location": {
     "coordinates": [13.422387745347237,52.51776926685366]
