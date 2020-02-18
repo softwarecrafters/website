@@ -1,12 +1,12 @@
 {
-  "name": "Mob Programming New England Conference",
-  "url": "https://www.mobprogrammingnewengland.com/",
+  "name": "Mob Programming Conference",
+  "url": "https://www.mobprogrammingconference.com/",
   "code-of-conduct": "https://mobprogrammingnewengland.com/code-of-conduct",
   "next-date": {
-    "start": "2019-04-11",
-    "end": "2019-04-12"
+    "start": "2020-05-30",
+    "end": "2020-05-31"
   },
   "location": {
-    "coordinates": [-71.191560, 42.484449]
+    "coordinates": [-71.104616, 42.349889]
   }
 }
