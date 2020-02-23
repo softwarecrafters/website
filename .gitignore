@@ -4,3 +4,4 @@ target/map.js*
 target/style.css
 conferences.json
 conferences.ics
+conferences.js
