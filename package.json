@@ -41,7 +41,7 @@
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-scss": "^0.4.0",
-    "serve": "^10.1.1"
+    "serve": "^10.1.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.5",
