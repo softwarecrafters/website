@@ -6,7 +6,7 @@ The website powering [softwarecrafters.org](https://softwarecrafters.org), a web
 
 Feel free to fork this repository and add your local community to it.
 
-## ⚙️ Setup
+## ⚙️ Here's the setup
 
 The website uses [rollup](rollupjs.org) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated via [Travis](https://travis-ci.org/softwarecrafters/website) and deployed to [netlify.com](https://www.netlify.com/).
 
@@ -22,7 +22,7 @@ yarn watch            # Run the watch task
 yarn test             # Validate the present schemata
 ```
 
-## 🌐 Adding your community / conference
+## 🌐 Make your community / conference
 
 If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through Travis (resp. for [conferences](conferences_schema.json)).
 
