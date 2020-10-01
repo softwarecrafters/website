@@ -6,7 +6,7 @@ The website powering [softwarecrafters.org](https://softwarecrafters.org), a web
 
 Feel free to fork this repository and add your local community to it.
 
-## ⚙️ Setup
+## ⚙️ Setup and installation
 
 The website uses [rollup](rollupjs.org) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated via [Travis](https://travis-ci.org/softwarecrafters/website) and deployed to [netlify.com](https://www.netlify.com/).
 
