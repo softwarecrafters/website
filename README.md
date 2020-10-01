@@ -8,19 +8,19 @@ Feel free to fork this repository and add your local community to it.
 
 ## ⚙️ Setup
 
-The website uses [rollup](rollupjs.org) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated via [Travis](https://travis-ci.org/softwarecrafters/website) and deployed to [netlify.com](https://www.netlify.com/).
+The website uses [rollup](rollupjs.org) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated via [Travis](https://travis-ci.org/softwarecrafters/website) and deployed to [netlify](https://www.netlify.com/).
 
-It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make sure you're using the particular [node version](.nvmrc) we are using.
+It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make sure you're using the particular [node version](https://nodejs.org/ja/blog/release/v8.11.1/) we are using.
 
-```
-nvm install           # installs the node version we are using
-npm install -g yarn   # Install yarn
-yarn                  # Install dependencies
 
-yarn build            # Build initial version
-yarn watch            # Run the watch task
-yarn test             # Validate the present schemata
-```
+* `nvm install`           Install the node version we are using
+* `npm install -g yarn`   Install yarn
+* `yarn`                  Install dependencies
+
+* `yarn build`            Build initial version
+* `yarn watch`            Run the watch task
+* `yarn test`             Validate the present schemata
+
 
 ## 🌐 Adding your community / conference
 
