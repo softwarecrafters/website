@@ -3,7 +3,7 @@
 
 
 The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
-
+Bringing together all local Software Craft Communities worldwide! Add your local community today or discover communities all over the world.
 Feel free to fork this repository and add your local community to it.
 
 ## ⚙️ Setup
