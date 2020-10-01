@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=master)](https://travis-ci.org/softwarecrafters/website) [![Deps](https://david-dm.org/softwarecrafters/website.svg)](https://david-dm.org/softwarecrafters/website) [![DevDeps](https://david-dm.org/softwarecrafters/website/dev-status.svg)](https://david-dm.org/softwarecrafters/website)
 
 
-The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
+The website powering [softwarecrafters.org](https://softwarecrafters.org) , a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
 
 Feel free to fork this repository and add your local community to it.
 
