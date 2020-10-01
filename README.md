@@ -26,11 +26,11 @@ yarn test             # Validate the present schemata
 
 If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through Travis (resp. for [conferences](conferences_schema.json)).
 
-1. Fork this repository
-2. Create a new file in `communities/${YOURCITYNAME}.json` (resp. `conferences/${YOURCONFERENCE}.json`)
-3. Enter valid JSON as of [the schema](communities_schema.json) (resp. [conferences_schema.json](conferences_schema.json))
-4. Commit & push your change
-5. Create a Pull Request against this repository
+1. Fork this repository.
+2. Create a new file in `communities/${YOURCITYNAME}.json` (resp. `conferences/${YOURCONFERENCE}.json`).
+3. Enter valid JSON as of [the schema](communities_schema.json) (resp. [conferences_schema.json](conferences_schema.json)).
+4. Commit & push your change.
+5. Create a Pull Request against this repository.
 
 ### Finding the coordinates of your city...
 
@@ -38,7 +38,7 @@ If you want to add your local community / conference to the map, please have a l
 
 ![GIF showing how a mouse click logs the coordinates under the map to the console](docs/finding_coordinates.gif)
 
-## 🌐 Showing upcoming conferences on your conference page
+## 🌐 Showing some upcoming conferences on your conference page
 
 A lot of the conferences listed here also list their "sibling"-conferences on their website so your attendees might be inspired to visit another conference in our communities. We highly encourage you to do that and provide a couple of ways of sourcing our data, either live or at build-time of your website:
 
