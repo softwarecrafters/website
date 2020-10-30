@@ -1,11 +1,12 @@
 {
   "name": "Codefreeze",
   "url": "https://www.codefreeze.fi/",
+  "code-of-conduct": "https://codefreeze.fi/#code-of-conduct",
   "location": {
     "coordinates": [27.4315, 68.3752]
   },
   "next-date": {
-    "start": "2021-01-09",
-    "end": "2021-01-16"
+    "start": "2022-01-09",
+    "end": "2022-01-16"
   }
 }
