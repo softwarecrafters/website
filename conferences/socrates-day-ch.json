@@ -1,6 +1,7 @@
 {
   "name": "SoCraTes Day Switzerland",
   "url": "http://socrates-day.ch/",
+  "code-of-conduct": "https://github.com/socrates-ch/socrates-day/wiki/Code-of-Conduct",
   "next-date": {
     "start": "2020-09-17",
     "end": "2020-09-17"
