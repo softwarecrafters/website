@@ -3,7 +3,7 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Berlin/",
   "location": {
     "city": "Berlin, Germany",
-    "coordinates": [13.391765857937543, 52.518358457921096]
+    "coordinates": { "lat": 52.518358457921096, "lng": 13.391765857937543 }
   },
   "icon": "icons/berlin.png"
 }

@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Turkey/",
   "location": {
     "city": "Istanbul, Turkey",
-    "coordinates": [29.073189655346084,41.00631454633913]
+    "coordinates": { "lat": 41.00631454633913, "lng": 29.073189655346084 }
   }
 }

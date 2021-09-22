@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/rheinneckar",
   "location": {
     "city": "Mannheim, Germany",
-    "coordinates": [8.466222409072685,49.487215865792564]
+    "coordinates": { "lat": 49.487215865792564, "lng": 8.466222409072685 }
   }
 }

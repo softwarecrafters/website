@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/es-ES/Software-Craftsmanship-Alicante/",
   "location": {
     "city": "Alicante, Spain",
-    "coordinates": [-0.4846062551184218,38.34504865979653]
+    "coordinates": { "lat": 38.34504865979653, "lng": -0.4846062551184218 }
   }
 }

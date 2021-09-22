@@ -1,14 +1,13 @@
 {
   "name": "SoCraTes Day Berlin",
   "url": "https://www.socratesday.berlin",
-  "code-of-conduct":
-    "https://www.socratesday.berlin",
+  "code-of-conduct": "https://www.socratesday.berlin",
   "next-date": {
     "start": "2019-09-06",
     "end": "2019-09-07"
   },
   "location": {
-    "coordinates": [13.422387745347237,52.51776926685366]
+    "coordinates": { "lat": 52.51776926685366, "lng": 13.422387745347237 }
   },
   "icon": "icons/socratesdayber.png"
 }

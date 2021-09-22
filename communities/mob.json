@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/socramob",
   "location": {
     "city": "Niedersachsen/NRW, Germany",
-    "coordinates": [8.02097649761589, 52.16992136590494]
+    "coordinates": { "lat": 52.16992136590494, "lng": 8.02097649761589 }
   }
 }

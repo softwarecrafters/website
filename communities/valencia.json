@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Valencia-Software-Crafters/",
   "location": {
     "city": "Valencia, Spain",
-    "coordinates": [-0.37639777426937826,39.46995676905311]
+    "coordinates": { "lat": 39.46995676905311, "lng": -0.37639777426937826 }
   }
 }

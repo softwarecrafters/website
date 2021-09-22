@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Utah-Software-Craftsmanship/",
   "location": {
     "city": "Lehi, UT, USA",
-    "coordinates": [-111.86853142301861, 40.43541504742515]
+    "coordinates": { "lat": 40.43541504742515, "lng": -111.86853142301861 }
   }
 }

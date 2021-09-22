@@ -1,13 +1,12 @@
 {
-    "name": "#humansconf",
-    "url": "https://www.humansconf.org/",
-    "code-of-conduct": "https://www.humansconf.org/code-of-conduct",
-    "next-date": {
-      "start": "2020-05-21",
-      "end": "2020-05-23"
-    },
-    "location": {
-      "coordinates": [9.110153170643827,50.04427048604572]
-    }
+  "name": "#humansconf",
+  "url": "https://www.humansconf.org/",
+  "code-of-conduct": "https://www.humansconf.org/code-of-conduct",
+  "next-date": {
+    "start": "2020-05-21",
+    "end": "2020-05-23"
+  },
+  "location": {
+    "coordinates": { "lat": 50.04427048604572, "lng": 9.110153170643827 }
   }
-  
+}

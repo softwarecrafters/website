@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/software-craftsmanship-bdx/",
   "location": {
     "city": "Bordeaux, France",
-    "coordinates": [-0.5723457,44.8414745]
+    "coordinates": { "lat": 44.8414745, "lng": -0.5723457 }
   }
 }

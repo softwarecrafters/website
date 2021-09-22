@@ -3,6 +3,6 @@
   "url": "http://www.codecraftuk.org/",
   "location": {
     "city": "Glasgow, United Kingdom",
-    "coordinates": [-4.2606031928448544,55.85892760599438]
+    "coordinates": { "lat": 55.85892760599438, "lng": -4.2606031928448544 }
   }
 }

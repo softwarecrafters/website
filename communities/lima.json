@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Peru/",
   "location": {
     "city": "Lima, Perú",
-    "coordinates": [-77.03059944399082,-12.045945732454783]
+    "coordinates": { "lat": -12.045945732454783, "lng": -77.03059944399082 }
   }
 }

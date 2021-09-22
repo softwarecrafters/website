@@ -3,7 +3,7 @@
   "url": "https://www.codefreeze.fi/",
   "code-of-conduct": "https://codefreeze.fi/#code-of-conduct",
   "location": {
-    "coordinates": [27.4315, 68.3752]
+    "coordinates": { "lat": 68.3752, "lng": 27.4315 }
   },
   "next-date": {
     "start": "2022-01-09",

@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/iaam-linz/",
   "location": {
     "city": "Linz, Austria",
-    "coordinates": [14.288546236856433,48.30458601816835]
+    "coordinates": { "lat": 48.30458601816835, "lng": 14.288546236856433 }
   }
 }

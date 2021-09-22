@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Crafters-Sydney/",
   "location": {
     "city": "Sydney, Australia",
-    "coordinates": [151.21323152004067, -33.853730887346245]
+    "coordinates": { "lat": -33.853730887346245, "lng": 151.21323152004067 }
   }
 }

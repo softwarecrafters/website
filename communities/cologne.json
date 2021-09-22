@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/cologne",
   "location": {
     "city": "Köln, Germany",
-    "coordinates": [6.958081018665638,50.941311009867064]
+    "coordinates": { "lat": 50.941311009867064, "lng": 6.958081018665638 }
   }
 }

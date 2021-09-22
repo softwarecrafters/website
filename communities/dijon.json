@@ -3,6 +3,6 @@
   "url": "https://www.sylvainmoingeon.fr/dijon-software-craftsmanship/",
   "location": {
     "city": "Dijon métropole, France",
-    "coordinates": [5.041312577658658,47.321517056405014]
+    "coordinates": { "lat": 47.321517056405014, "lng": 5.041312577658658 }
   }
 }

@@ -38,7 +38,7 @@ const run = () => {
     configureConferences(map, geocoder);
 
     map.on("click", function(e) {
-      console.log(JSON.stringify([e.lngLat.lng, e.lngLat.lat]));
+      console.log(JSON.stringify({lat: e.lngLat.lat, lng: e.lngLat.lng}));
     });
 
     map.on("click", e => {

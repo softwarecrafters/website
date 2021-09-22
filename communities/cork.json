@@ -3,7 +3,7 @@
   "url": "https://www.meetup.com/Cork-Software-Craftsmanship-Meetup/",
   "location": {
     "city": "Cork, Ireland",
-    "coordinates": [-8.470376142820072, 51.89846445085382]
+    "coordinates": { "lat": 51.89846445085382, "lng": -8.470376142820072 }
   },
   "icon": "icons/cork.png"
 }

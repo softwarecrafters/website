@@ -7,9 +7,6 @@
         "end": "2020-06-05"
     },
     "location": {
-        "coordinates": [
-            -1.6405,
-            48.1151
-        ]
+        "coordinates": { "lat": 48.1151, "lng": -1.6405 }
     }
 }

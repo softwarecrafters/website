@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Toulouse",
   "location": {
     "city": "Toulouse, France",
-    "coordinates": [1.4415723401538685,43.60247079518237]
+    "coordinates": { "lat": 43.60247079518237, "lng": 1.4415723401538685 }
   }
 }

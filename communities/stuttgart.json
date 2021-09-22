@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/stuttgart",
   "location": {
     "city": "Stuttgart, Germany",
-    "coordinates": [9.179754, 48.778402]
+    "coordinates": { "lat": 48.778402, "lng": 9.179754 }
   }
 }

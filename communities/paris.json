@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/paris-software-craftsmanship/",
   "location": {
     "city": "Paris, France",
-    "coordinates": [2.3408607,48.8572067]
+    "coordinates": { "lat": 48.8572067, "lng": 2.3408607 }
   }
 }

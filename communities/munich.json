@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Meetup-Softwerkskammer-Munchen/",
   "location": {
     "city": "München, Germany",
-    "coordinates": [11.575506762468535, 48.13721093113753]
+    "coordinates": { "lat": 48.13721093113753, "lng": 11.575506762468535 }
   }
 }
