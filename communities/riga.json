@@ -3,6 +3,6 @@
   "url": "http://latcraft.lv/",
   "location": {
     "city": "Riga, Latvia",
-    "coordinates": [24.105569826238224, 56.94522101085289]
+    "coordinates": { "lat": 56.94522101085289, "lng": 24.105569826238224 }
   }
 }

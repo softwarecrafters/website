@@ -1,5 +1,5 @@
 import communities from "../../communities.json";
-import slugify from 'slugify';
+import slugify from "slugify";
 
 const dataSource = {
   type: "geojson",
@@ -10,16 +10,19 @@ const dataSource = {
       type: "Feature",
       geometry: {
         type: "Point",
-        coordinates: community.location.coordinates
+        coordinates: [
+          community.location.coordinates.lng,
+          community.location.coordinates.lat,
+        ],
       },
       properties: {
         id: slugify(`community-${community.name}`).toLowerCase(),
         url: community.url,
         name: community.name,
-        icon: community.icon
-      }
-    }))
-  }
+        icon: community.icon,
+      },
+    })),
+  },
 };
 
 export default dataSource;

@@ -31,30 +31,36 @@
       "additionalProperties": false
     },
     "location": {
-      "description":
-        "Information about where to place your conference on the map",
+      "description": "Information about where to place your conference on the map",
       "type": "object",
       "properties": {
         "city": { "type": "string", "description": "Not used right now" },
         "coordinates": {
-          "type": "array",
-          "description":
-            "Long/Lat values of where to place your community. ATTENTION: Long comes first, this is different from how GMaps/OSM show them",
-          "additionalItems": false,
-          "minItems": 2,
-          "maxItems": 2,
-          "items": [
-            { "type": "number", "title": "Longitude" },
-            { "type": "number", "title": "Latitude" }
-          ]
+          "type": "object",
+          "description": "Long/Lat values of where to place your community.",
+          "properties": {
+            "lat": {
+              "description": "Latitude",
+              "type": "number",
+              "min": -90,
+              "max": 90
+            },
+            "lng": {
+              "description": "Longitude",
+              "type": "number",
+              "min": -180,
+              "max": 180
+            }
+          },
+          "additionalProperties": false,
+          "required": ["lat", "lng"]
         }
       },
       "additionalProperties": false,
       "required": ["coordinates"]
     },
     "icon": {
-      "description":
-        "The relative url to an icon in 64x64 PNG format. Should be places in /target/icons/",
+      "description": "The relative url to an icon in 64x64 PNG format. Should be places in /target/icons/",
       "type": "string"
     }
   },

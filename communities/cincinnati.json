@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Cincinnati-Software-Craftsmanship/",
   "location": {
     "city": "Cincinnati, OH, USA",
-    "coordinates": [-84.50809000541554, 39.10401835689723]
+    "coordinates": { "lat": 39.10401835689723, "lng": -84.50809000541554 }
   }
 }

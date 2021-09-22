@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/luebeck",
   "location": {
     "city": "Lübeck, Germany",
-    "coordinates": [10.685533790090687,53.86827351875965]
+    "coordinates": { "lat": 53.86827351875965, "lng": 10.685533790090687 }
   }
 }

@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Pamplona-Iruna-Software-Craftsmanship/",
   "location": {
     "city": "Pamplona, Spain",
-    "coordinates": [-1.6446899014540861,42.81843967798869]
+    "coordinates": { "lat": 42.81843967798869, "lng": -1.6446899014540861 }
   }
 }

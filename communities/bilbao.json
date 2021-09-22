@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Crafters-Bilbao/",
   "location": {
     "city": "Bilbao, Spain",
-    "coordinates": [-2.935013628701256,43.26313934336915]
+    "coordinates": { "lat": 43.26313934336915, "lng": -2.935013628701256 }
   }
 }

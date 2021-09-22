@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/es-ES/Software-Craftsmanship-Murcia/",
   "location": {
     "city": "Murcia, Spain",
-    "coordinates": [-1.1422793644861997,37.99392918050721]
+    "coordinates": { "lat": 37.99392918050721, "lng": -1.1422793644861997 }
   }
 }

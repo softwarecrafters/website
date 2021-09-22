@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Club-ma/",
   "location": {
     "city": "Casablanca, Morocco",
-    "coordinates": [-7.6179123,33.5944400]
+    "coordinates": { "lat": 33.59444, "lng": -7.6179123 }
   }
 }

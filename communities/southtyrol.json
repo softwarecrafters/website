@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/preview/Software-Craftsmanship-SouthTyrol",
   "location": {
     "city": "Bolzano, Italy",
-    "coordinates": [11.354758, 46.498295]
+    "coordinates": { "lat": 46.498295, "lng": 11.354758 }
   }
 }

@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/seattle-software-craftsmanship/",
   "location": {
     "city": "Seattle, WA, USA",
-    "coordinates": [-122.3312136045949, 47.60371401067161]
+    "coordinates": { "lat": 47.60371401067161, "lng": -122.3312136045949 }
   }
 }

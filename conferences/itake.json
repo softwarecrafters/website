@@ -7,6 +7,6 @@
     "end": "2019-05-31"
   },
   "location": {
-    "coordinates": [26.09442, 44.44134]
+    "coordinates": { "lat": 44.44134, "lng": 26.09442 }
   }
 }

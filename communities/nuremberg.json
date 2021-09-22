@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/nuernberg",
   "location": {
     "city": "Nürnberg, Germany",
-    "coordinates": [11.07737223342852,49.45345273950633]
+    "coordinates": { "lat": 49.45345273950633, "lng": 11.07737223342852 }
   }
 }

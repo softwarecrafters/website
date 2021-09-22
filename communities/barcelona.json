@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Crafters-Barcelona/",
   "location": {
     "city": "Barcelona, Spain",
-    "coordinates": [2.1776916884538196,41.382653531504985]
+    "coordinates": { "lat": 41.382653531504985, "lng": 2.1776916884538196 }
   }
 }

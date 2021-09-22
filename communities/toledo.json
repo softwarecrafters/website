@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/swcraftersclm/",
   "location": {
     "city": "Toledo, Spain",
-    "coordinates": [-4.025041800961844, 39.856725427974254]
+    "coordinates": { "lat": 39.856725427974254, "lng": -4.025041800961844 }
   }
 }

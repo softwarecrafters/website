@@ -32,7 +32,10 @@ const dataSource = {
         type: 'Feature',
         geometry: {
           type: 'Point',
-          coordinates: conference.location.coordinates
+          coordinates: [
+            conference.location.coordinates.lng, 
+            conference.location.coordinates.lat
+          ]
         },
         properties: props
       };

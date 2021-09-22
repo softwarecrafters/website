@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Buenos-Aires/",
   "location": {
     "city": "Buenos Aires, Argentina",
-    "coordinates": [-58.38156926627565,-34.60364057940149]
+    "coordinates": { "lat": -34.60364057940149, "lng": -58.38156926627565 }
   }
 }

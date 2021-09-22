@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/LA-Software-Craftsmanship/",
   "location": {
     "city": "Santa Monica, CA, USA",
-    "coordinates": [-118.49111304448854, 34.02070272411362]
+    "coordinates": { "lat": 34.02070272411362, "lng": -118.49111304448854 }
   }
 }

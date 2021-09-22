@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/socratesbe",
   "location": {
     "city": "Hasselt, Belgium",
-    "coordinates": [5.337799982829409,50.93029417558466]
+    "coordinates": { "lat": 50.93029417558466, "lng": 5.337799982829409 }
   }
 }

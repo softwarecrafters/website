@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/magdeburg",
   "location": {
     "city": "Magdeburg, Germany",
-    "coordinates": [11.651338938588111, 52.13065160003919]
+    "coordinates": { "lat": 52.13065160003919, "lng": 11.651338938588111 }
   }
 }

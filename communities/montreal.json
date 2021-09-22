@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Crafters-Montreal/",
   "location": {
     "city": "Montreal, QC, Canada",
-    "coordinates": [-73.60701487863523,45.52663715669149]
+    "coordinates": { "lat": 45.52663715669149, "lng": -73.60701487863523 }
   }
 }

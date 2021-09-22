@@ -3,6 +3,6 @@
   "url": "https://www.softwerkskammer.org/groups/rostock/",
   "location": {
     "city": "Rostock, Germany",
-    "coordinates": [12.12106789584783, 54.09109944607951]
+    "coordinates": { "lat": 54.09109944607951, "lng": 12.12106789584783 }
   }
 }

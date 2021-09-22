@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Software-Craftsmanship-Chile/",
   "location": {
     "city": "Santiago, Chile",
-    "coordinates": [-70.64461078728563,-33.44890075112739]
+    "coordinates": { "lat": -33.44890075112739, "lng": -70.64461078728563 }
   }
 }

@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/pune-software-craftsmanship-community/",
   "location": {
     "city": "Pune, India",
-    "coordinates": [73.84715611831751,18.52928204914349]
+    "coordinates": { "lat": 18.52928204914349, "lng": 73.84715611831751 }
   }
 }

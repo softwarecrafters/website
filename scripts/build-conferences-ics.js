@@ -26,18 +26,16 @@ const { error, value } = ics.createEvents(
       end[2]++;
     }
 
-    const geo = {
-      lat: conference.location.coordinates[1],
-      lon: conference.location.coordinates[0]
-    }
-
     return {
       title: conference.name,
       description: conference.url,
       url: conference.url,
       start,
       end,
-      geo,
+      geo: {
+        lat: conference.location.coordinates.lat,
+        lon: conference.location.coordinates.lng
+      },
     };
   })
 );

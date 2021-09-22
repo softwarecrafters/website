@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Riviera-SCC/",
   "location": {
     "city": "Antibes",
-    "coordinates": [7.109300344770475, 43.58363714641922]
+    "coordinates": { "lat": 43.58363714641922, "lng": 7.109300344770475 }
   }
 }

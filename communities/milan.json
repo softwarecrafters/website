@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/Crafted-Software/",
   "location": {
     "city": "Milan, Italy",
-    "coordinates": [9.1285842,45.4886989]
+    "coordinates": { "lat": 45.4886989, "lng": 9.1285842 }
   }
 }

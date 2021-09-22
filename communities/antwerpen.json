@@ -3,6 +3,6 @@
   "url": "https://www.meetup.com/socratesbe",
   "location": {
     "city": "Antwerpen, Belgium",
-    "coordinates": [4.3913025820982625,51.21961353023971]
+    "coordinates": { "lat": 51.21961353023971, "lng": 4.3913025820982625 }
   }
 }
