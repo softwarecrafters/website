@@ -1,0 +1,12 @@
+{
+  "name": "SoCraTes Family Switzerland",
+  "url": "https://ch.socrates.family/",
+  "code-of-conduct": "https://ch.socrates.family/#content4-7",
+  "next-date": {
+    "start": "2022-06-02",
+    "end": "2022-06-06"
+  },
+  "location": {
+    "coordinates": { "lat": 46.77052, "lng": 9.06746 },
+  }
+}
