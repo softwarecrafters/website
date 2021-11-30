@@ -7,6 +7,10 @@
     "end": "2021-09-24"
   },
   "location": {
-    "coordinates": { "lat": 47.36742, "lng": 8.55399 }
-  }
+    "coordinates": {
+      "lat": 47.36742,
+      "lng": 8.55399
+    }
+  },
+  "icon": "icons/socrates-ch.png"
 }
