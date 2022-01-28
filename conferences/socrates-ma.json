@@ -1,0 +1,12 @@
+{
+  "name": "SoCraTes Maroc",
+  "url": "https://socrates-ma.github.io/",
+  "code-of-conduct": "https://socrates-ma.github.io/#portfolioModal2",
+  "location": {
+    "coordinates": { "lat": 31.67945163134224, "lng": -7.934092197952625 }
+  },
+  "next-date": {
+    "start": "2022-03-25",
+    "end": "2022-03-27"
+  }
+}
