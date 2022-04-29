@@ -142,6 +142,7 @@ export default async (map, geocoder) => {
         "unclustered-conferences-point"
       ]
     });
+    
 
     if (
       features.length === 1 ||

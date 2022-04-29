@@ -13,7 +13,8 @@ const dataSource = {
         icon: conference.icon,
         url: conference.url,
         name: conference.name,
-        coc: conference['code-of-conduct']
+        coc: conference['code-of-conduct'],
+        covid19: conference['covid19-policy'],
       };
 
       if (conference['next-date']) {

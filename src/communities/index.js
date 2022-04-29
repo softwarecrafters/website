@@ -109,7 +109,6 @@ export default async (map, geocoder) => {
     const features = map.queryRenderedFeatures(e.point, {
       layers: ["unclustered-communities", "unclustered-communities-point"],
     });
-
     if (
       features.length === 1 ||
       (features.length === 2 &&

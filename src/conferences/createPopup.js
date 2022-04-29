@@ -1,20 +1,20 @@
 import prettyPrint from "../prettyPrint";
 
-const createCocText = conference =>
+const createCocText = (conference) =>
   conference.properties.coc
-    ? `<p><a href="${conference.properties.coc}">Code of Conduct</a></p>`
+    ? `<p><strong><a href="${conference.properties.coc}">Code of Conduct</a></strong></p>`
     : "";
 
-const createDateText = conference => {
+const createCovid19PolicyText = (conference) =>
+  `<p><strong>COVID-19 Policy: </strong>${
+    conference.properties.covid19 ?? "not specified"
+  }`;
+
+const createDateText = (conference) => {
   if (conference.properties.start == null) return "";
 
-  const {
-    start,
-    end,
-    singleDay,
-    isUpcoming,
-    daysUntil
-  } = conference.properties;
+  const { start, end, singleDay, isUpcoming, daysUntil } =
+    conference.properties;
 
   const dateFormatted =
     (singleDay
@@ -31,30 +31,25 @@ const createDateText = conference => {
   return `<p><strong>Next:&nbsp;</strong>${dateFormatted}`;
 };
 
-const createIcon = conference => `  ${
+const createIcon = (conference) => `  ${
   conference.properties.icon
-    ? `<img class="popup-icon" role="presentation" src="${
-        conference.properties.icon
-      }">`
+    ? `<img class="popup-icon" role="presentation" src="${conference.properties.icon}">`
     : ""
 }
 `;
 
-export default conference => {
+export default (conference) => {
   const div = document.createElement("div");
   div.classList.add("popup");
   div.classList.add("conference-popup");
 
-  const dateLine = createDateText(conference);
-  const cocLine = createCocText(conference);
   const icon = createIcon(conference);
 
   div.innerHTML = `
-    <h1><a target="_blank" href="${conference.properties.url}">${
-    conference.properties.name
-  }</a>${icon}</h1>
-    ${dateLine}
-    ${cocLine}
+    <h1><a target="_blank" href="${conference.properties.url}">${conference.properties.name}</a>${icon}</h1>
+    ${createDateText(conference)}
+    ${createCocText(conference)}
+    ${createCovid19PolicyText(conference)}
   `;
 
   return div;

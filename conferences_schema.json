@@ -14,6 +14,10 @@
       "description": "URL to your code of conduct",
       "type": "string"
     },
+    "covid19-policy": {
+      "description": "A brief summary of the measures taken with regards to covid19. Helpful for folks to decide whether to attend or not.",
+      "type": "string"
+    },
     "next-date": {
       "description": "The next time your conference is taking place",
       "type": "object",
