@@ -40,24 +40,6 @@ const run = () => {
     map.on("click", function(e) {
       console.log(JSON.stringify({lat: e.lngLat.lat, lng: e.lngLat.lng}));
     });
-
-    map.on("click", e => {
-      const features = map.queryRenderedFeatures(e.point, {
-        layers: [
-          "unclustered-communities",
-          "unclustered-communities-point",
-          "unclustered-conferences",
-          "unclustered-conferences-point"
-        ]
-      });
-
-      if (features.length > 1) {
-        map.flyTo({
-          zoom: map.getZoom() + 2,
-          center: features[0].geometry.coordinates
-        });
-      }
-    });
   });
 };
 

@@ -139,17 +139,15 @@ export default async (map, geocoder) => {
   map.on("click", e => {
     const features = map.queryRenderedFeatures(e.point, {
       layers: [
-        "unclustered-communities",
-        "unclustered-communities-point",
         "unclustered-conferences",
         "unclustered-conferences-point"
       ]
     });
 
     if (
-      features.length === 1 &&
-      (features[0].layer.id === "unclustered-conferences" ||
-        features[0].layer.id === "unclustered-conferences-point")
+      features.length === 1 ||
+      (features.length === 2 &&
+        features[0].properties.id === features[1].properties.id)
     ) {
       flyTo(features[0], map);
     }

@@ -1,6 +1,6 @@
 import mapboxgl from "mapbox-gl";
 import { RED, YELLOW } from "../colors";
-import { loadIcons } from '../loadIcons';
+import { loadIcons } from "../loadIcons";
 import createPopup from "./createPopup";
 import communitiesDataSource from "./dataSource";
 
@@ -11,8 +11,8 @@ const clusterLayer = {
   filter: ["has", "point_count"],
   paint: {
     "circle-color": RED,
-    "circle-radius": 15
-  }
+    "circle-radius": 15,
+  },
 };
 
 const clusterCountLayer = {
@@ -23,8 +23,8 @@ const clusterCountLayer = {
   layout: {
     "text-field": "{point_count_abbreviated}",
     "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-    "text-size": 12
-  }
+    "text-size": 12,
+  },
 };
 
 const unclusteredCommunitiesLayer = {
@@ -44,8 +44,8 @@ const unclusteredCommunitiesLayer = {
     "icon-image": "{id}",
     "icon-allow-overlap": true,
     "icon-anchor": "bottom",
-    "icon-offset": [0, -15]
-  }
+    "icon-offset": [0, -15],
+  },
 };
 
 const unclusteredCommunitiesPointLayer = {
@@ -57,11 +57,11 @@ const unclusteredCommunitiesPointLayer = {
     "circle-color": RED,
     "circle-radius": 7,
     "circle-stroke-width": 1,
-    "circle-stroke-color": "#fff"
-  }
+    "circle-stroke-color": "#fff",
+  },
 };
 
-const updateLocation = community =>
+const updateLocation = (community) =>
   window.history.pushState(
     {},
     document.title,
@@ -83,7 +83,7 @@ const showPopup = (community, map) => {
 const flyTo = (community, map) => {
   map.flyTo({
     zoom: Math.max(map.getZoom(), 8),
-    center: community.geometry.coordinates
+    center: community.geometry.coordinates,
   });
   updateLocation(community);
   showPopup(community, map);
@@ -98,27 +98,22 @@ export default async (map, geocoder) => {
   map.addLayer(unclusteredCommunitiesPointLayer);
   map.addLayer(unclusteredCommunitiesLayer);
 
-  map.on("click", "community-clusters", e => {
+  map.on("click", "community-clusters", (e) => {
     map.flyTo({
       zoom: map.getZoom() + 2,
-      center: e.features[0].geometry.coordinates
+      center: e.features[0].geometry.coordinates,
     });
   });
 
-  map.on("click", e => {
+  map.on("click", (e) => {
     const features = map.queryRenderedFeatures(e.point, {
-      layers: [
-        "unclustered-communities",
-        "unclustered-communities-point",
-        "unclustered-conferences",
-        "unclustered-conferences-point"
-      ]
+      layers: ["unclustered-communities", "unclustered-communities-point"],
     });
 
     if (
-      features.length === 1 &&
-      (features[0].layer.id === "unclustered-communities" ||
-        features[0].layer.id === "unclustered-communities-point")
+      features.length === 1 ||
+      (features.length === 2 &&
+        features[0].properties.id === features[1].properties.id)
     ) {
       flyTo(features[0], map);
     }
@@ -135,7 +130,7 @@ export default async (map, geocoder) => {
 
   geocoder.on("result", ({ result }) => {
     const community = communitiesDataSource.data.features.find(
-      feature => feature.properties.id === result.id
+      (feature) => feature.properties.id === result.id
     );
     if (community) {
       updateLocation(community);
@@ -146,7 +141,7 @@ export default async (map, geocoder) => {
   if (window.location.hash) {
     const id = window.location.hash.slice(1);
     const community = communitiesDataSource.data.features.find(
-      feature => feature.properties.id === id
+      (feature) => feature.properties.id === id
     );
     if (community) {
       flyTo(community, map);
