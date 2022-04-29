@@ -1,0 +1,14 @@
+{
+  "name": "AgileCrete / SoCraTes Crete",
+  "url": "https://agilecrete.org/",
+  "location": {
+    "city": "Kolymvari",
+    "coordinates": [23.77668015917692,35.55218784292704]
+  },
+  "code-of-conduct": "https://agilecrete.org/code-of-conduct/",
+  "next-date": {
+    "start": "2022-06-09",
+    "end": "2020-06-12"
+  },
+  "icon": "icons/agilecrete_favicon_64.png"
+}
