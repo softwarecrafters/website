@@ -3,7 +3,7 @@
   "url": "https://agilecrete.org/",
   "location": {
     "city": "Kolymvari",
-    "coordinates": [23.77668015917692,35.55218784292704]
+   "coordinates": { "lat": 35.55218784292704, "lng": 23.77668015917692 }
   },
   "code-of-conduct": "https://agilecrete.org/code-of-conduct/",
   "next-date": {
