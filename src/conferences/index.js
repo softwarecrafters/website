@@ -113,7 +113,6 @@ const updateConferencesList = map => {
     .querySelector("a#conferences-list-all")
     .addEventListener("click", e => {
       e.preventDefault();
-      debugger;
       e.target.remove();
       list.innerHTML = "";
       nextConferences.map(createElement).forEach(li => list.appendChild(li));
