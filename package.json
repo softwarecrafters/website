@@ -21,18 +21,19 @@
     "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p watch:serve watch:js"
   },
   "jest": {
-    "testURL": "http://localhost:5000"
+    "testEnvironmentOptions": {
+      "url": "http://localhost:5000"
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/plugin-external-helpers": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "ajv": "^6.12.3",
-    "babel-core": "^7.0.0-bridge.0",
+    "ajv": "^8.11.0",
     "babel-jest": "^28.0.3",
     "glob": "^8.0.1",
-    "jest": "^25.1.0",
+    "jest": "^28.0.3",
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.9",
     "rollup": "^2.70.2",
