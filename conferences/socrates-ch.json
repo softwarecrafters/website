@@ -1,15 +1,15 @@
 {
   "name": "SoCraTes Switzerland",
   "url": "https://www.socrates-ch.org/",
-  "code-of-conduct": "https://www.socrates-ch.org/#code-of-conduct",
+  "code-of-conduct": "https://socrates-ch.org/#content4-d",
   "next-date": {
-    "start": "2022-02-03",
-    "end": "2022-02-06"
+    "start": "2023-02-02",
+    "end": "2023-02-05"
   },
   "location": {
     "coordinates": {
-      "lat": 46.79267,
-      "lng": 10.23997
+      "lat": 46.77767,
+      "lng": 9.19958
     }
   },
   "icon": "icons/socrates-ch.png"
