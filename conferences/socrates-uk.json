@@ -3,10 +3,12 @@
   "url": "https://socratesuk.org/",
   "code-of-conduct": "https://socratesuk.org/code_of_conduct.html",
   "next-date": {
-    "start": "2020-06-04",
-    "end": "2020-06-07"
+    "start": "2023-06-01",
+    "end": "2023-06-04"
   },
+  "covid19-policy": "At least support of masks",
   "location": {
-    "coordinates": { "lat": 51.2127, "lng": -0.3952 }
-  }
+    "coordinates": { "lat": 51.5124, "lng":-1.7747 }
+  },
+  "icon": "icons/socrates-uk.png"
 }
