@@ -1,0 +1,15 @@
+{
+  "name": "SoCraTes Crete",
+  "url": "https://socrates-crete.org/",
+  "code-of-conduct": "https://socrates-crete.org/code_of_conduct.html",
+  "covid19-policy": "https://socrates-crete.org/covid-19.html",
+  "icon": "icons/socrates-crete-logo.png",
+  "location": {
+    "city": "Kolymvari",
+   "coordinates": {"lat":35.552357322498324,"lng":23.77677544835572}
+  },
+  "next-date": {
+    "start": "2023-06-29",
+    "end": "2023-07-02"
+  }
+}
