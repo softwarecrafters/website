@@ -6,7 +6,7 @@
   "icon": "icons/socrates-crete-logo.png",
   "location": {
     "city": "Kolymvari",
-   "coordinates": { "lat": 35.55218784292704, "lng": 23.77668015917692 }
+   "coordinates": {"lat":35.552357322498324,"lng":23.77677544835572}
   },
   "next-date": {
     "start": "2023-06-29",
