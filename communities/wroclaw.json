@@ -1,0 +1,9 @@
+{
+  "name": "Software Crafters Wroclaw",
+  "url": "https://www.meetup.com/software-crafters-wroclaw/",
+  "location": {
+    "city": "Wroclaw, Poland",
+    "coordinates": {"lat":51.10570698148956,"lng":17.027886542580774}
+  },
+  "icon": "icons/wroclaw.png"
+}
