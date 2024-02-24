@@ -5,11 +5,11 @@
   "covid19-policy": "https://socrates-crete.org/covid-19.html",
   "icon": "icons/socrates-crete-logo.png",
   "location": {
-    "city": "Kolymvari",
-   "coordinates": {"lat":35.552357322498324,"lng":23.77677544835572}
+    "city": "Rethymno",
+   "coordinates": {"lat":35.37371479051246,"lng":24.544982445945145}
   },
   "next-date": {
-    "start": "2023-06-29",
-    "end": "2023-07-02"
+    "start": "2024-10-25",
+    "end": "2024-10-28"
   }
 }
