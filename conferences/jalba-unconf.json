@@ -1,0 +1,13 @@
+{
+  "name": "JAlba",
+  "url": "http://jalba.scot/",
+  "code-of-conduct": "http://jalba.scot/jalba-code-of-conduct/",
+  "location": {
+    "city": "Edinburgh",
+    "coordinates": { "lat": 55.9533, "lng": -3.188267 }
+  },
+  "next-date": {
+    "start": "2024-05-15",
+    "end": "2024-05-18"
+  }
+}
