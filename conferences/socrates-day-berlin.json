@@ -4,11 +4,11 @@
   "code-of-conduct": "http://www.socratesday.berlin",
   "covid19-policy": "self-test and show result during registration",
   "next-date": {
-    "start": "2023-04-22",
-    "end": "2023-04-22"
+    "start": "2024-06-01",
+    "end": "2024-06-01"
   },
   "location": {
-    "coordinates": { "lat": 52.5051324, "lng": 13.4603184 }
+    "coordinates": { "lat": 52.508920, "lng": 13.421690 }
   },
   "icon": "icons/socratesdayber.png"
 }
