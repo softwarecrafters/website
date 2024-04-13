@@ -1,12 +1,12 @@
 {
   "name": "Software Crafters Barcelona",
-  "url": "https://scbcn.github.io",
-  "code-of-conduct": "https://scbcn.github.io/coc.html",
+  "url": "https://softwarecrafters.barcelona/",
+  "code-of-conduct": "https://softwarecrafters.barcelona/coc.html",
   "next-date": {
-    "start": "2018-09-29",
-    "end": "2018-09-30"
+    "start": "2024-10-25",
+    "end": "2024-10-26"
   },
   "location": {
-    "coordinates": { "lat": 41.3837956865587, "lng": 2.166971936056541 }
+    "coordinates": { "lat": 41.3976607950043, "lng": 2.195687301499504 }
   }
 }
