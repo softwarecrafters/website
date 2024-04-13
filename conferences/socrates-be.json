@@ -1,10 +1,10 @@
 {
   "name": "SoCraTes Belgium",
   "url": "http://socratesbe.org/",
-  "code-of-conduct": "http://socratesbe.org/#coc",
+  "code-of-conduct": "https://confcodeofconduct.com/",
   "next-date": {
-    "start": "2020-05-14",
-    "end": "2020-05-17"
+    "start": "2024-10-10",
+    "end": "2024-10-13"
   },
   "location": {
     "coordinates": { "lat": 50.17952, "lng": 5.58305 }
