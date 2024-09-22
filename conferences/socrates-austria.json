@@ -1,10 +1,10 @@
 {
-  "name": "SoCraTes Austria 2019",
-  "url": "http://socrates-conference.at/",
-  "code-of-conduct": "http://socrates-conference.at/en/code-of-conduct/",
+  "name": "SoCraTes Austria 2025",
+  "url": "https://socrates-conference.at/",
+  "code-of-conduct": "https://socrates-conference.at/code-of-conduct/",
   "next-date": {
-    "start": "2020-10-02",
-    "end": "2020-10-03"
+    "start": "2025-09-26",
+    "end": "2020-09-27"
   },
   "location": {
     "coordinates": { "lat": 48.29074, "lng": 14.28827 }
