@@ -1,12 +1,12 @@
 {
   "name": "SoCraTes Canaries",
-  "url": "https://www.socracan.com/",
-  "code-of-conduct": "http://socracan.com/#coc",
+  "url": "https://www.socracan.org/",
+  "code-of-conduct": "http://socracan.org/#coc",
   "next-date": {
-    "start": "2020-02-06",
-    "end": "2020-02-09"
+    "start": "2025-05-22",
+    "end": "2025-05-25"
   },
   "location": {
-    "coordinates": { "lat": 28.0720885, "lng": -16.5137816 }
+    "coordinates": { "lat": 28.14843288920626, "lng": -15.430764584235959 }
   }
 }
