@@ -135,3 +135,70 @@ strong {
     font-size: 1.1rem;
   }
 }
+
+// Conferences page styles
+body#swcraft-conferences {
+  // Enable scrolling on conferences page (override global body overflow: hidden)
+  overflow: auto;
+}
+
+#swcraft-conferences {
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #666;
+  }
+
+  #conferences-list-page {
+    border: none;
+
+    .collection-item {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1.5rem 1rem;
+
+      .title {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+
+        a {
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .btn-floating {
+        @media only screen and (max-width: 600px) {
+          margin-top: 1rem;
+        }
+      }
+    }
+  }
+
+  #loading {
+    margin: 3rem 0;
+
+    .preloader-wrapper {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
