@@ -1,0 +1,75 @@
+# File: .github/workflows/format.yml
+name: Format Code with Prettier
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    
+    steps:
+      # 1. Check out the repo with token that can push
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      # 2. Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      # 3. Install Prettier globally
+      - name: Install Prettier
+        run: npm install -g prettier
+
+      # 4. Check if Prettier would make changes
+      - name: Check Prettier formatting
+        id: prettier-check
+        run: |
+          if prettier --check .; then
+            echo "needs_formatting=false" >> $GITHUB_OUTPUT
+            echo "✅ Code is already formatted"
+            exit 0
+          else
+            echo "needs_formatting=true" >> $GITHUB_OUTPUT
+            echo "❌ Code needs formatting"
+            exit 1
+          fi
+        continue-on-error: true
+
+      # 5. Run Prettier if needed
+      - name: Run Prettier
+        if: steps.prettier-check.outputs.needs_formatting == 'true'
+        run: prettier --write .
+
+      # 6. Commit & push any changes (only on push to main, not PRs)
+      - name: Commit formatted code
+        if: steps.prettier-check.outputs.needs_formatting == 'true' && github.event_name == 'push'
+        run: |
+          # Configure git user
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage changes
+          git add .
+
+          # Only commit if there are changes
+          if [ -n "$(git diff --cached)" ]; then
+            git commit -m "chore: format code with Prettier [skip ci]"
+            git push
+          else
+            echo "🎉 No formatting changes to commit."
+          fi
