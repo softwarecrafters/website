@@ -1,3 +1,5 @@
+import '../src/style.scss';
+
 document.addEventListener('DOMContentLoaded', async () => {
   $('.modal').modal();
   $('.button-collapse').sideNav();

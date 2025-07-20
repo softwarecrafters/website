@@ -7,18 +7,20 @@
   "author": "Raimo Radczewski <raimoradczewski@googlemail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "npm-run-all test build:communities build:conferences build:conferences-ics build:conferences-jsonp build:js",
-    "build:communities": "node scripts/build-communities.js && cp communities.json target/",
-    "build:conferences": "node scripts/build-conferences.js && cp conferences.json target/",
-    "build:conferences-ics": "node scripts/build-conferences-ics.js && cp conferences.ics target/",
-    "build:conferences-jsonp": "node scripts/build-conferences-jsonp.js && cp conferences.js target/",
-    "build:js": "rollup -c rollup.config.js",
+    "dev": "vite",
+    "build": "npm-run-all test build:data build:js build:copy-data",
+    "build:js": "vite build",
+    "preview": "vite preview",
+    "build:data": "npm-run-all build:communities build:conferences build:conferences-ics build:conferences-jsonp",
+    "build:communities": "node scripts/build-communities.js",
+    "build:conferences": "node scripts/build-conferences.js",
+    "build:conferences-ics": "node scripts/build-conferences-ics.js",
+    "build:conferences-jsonp": "node scripts/build-conferences-jsonp.js",
+    "build:copy-data": "cp communities.json conferences.json conferences.ics conferences.js target/",
     "test": "npm-run-all test:data test:js",
     "test:data": "node scripts/test-communities.js && node scripts/test-conferences.js",
     "test:js": "jest",
-    "watch:js": "rollup --watch -c rollup.config.js",
-    "watch:serve": "serve target/",
-    "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p watch:serve watch:js"
+    "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p dev"
   },
   "jest": {
     "testEnvironmentOptions": {
@@ -32,18 +34,13 @@
     "@babel/preset-env": "^7.16.11",
     "ajv": "^8.11.0",
     "babel-jest": "^28.0.3",
-    "glob": "^8.0.1",
     "jest": "^28.0.3",
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.9",
-    "rollup": "^2.70.2",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-scss": "^3.0.0",
     "sass": "^1.51.0",
-    "serve": "^14.1.2"
+    "serve": "^14.1.2",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-legacy": "^5.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.17.9",

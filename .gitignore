@@ -1,7 +1,6 @@
 communities.json
 node_modules
-target/map.js*
-target/style.css
+target/
 conferences.json
 conferences.ics
 conferences.js
