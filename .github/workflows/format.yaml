@@ -21,6 +21,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -46,7 +48,7 @@ jobs:
         if: steps.prettier-check.outputs.needs_formatting == 'true'
         run: npx prettier --write .
 
-      - name: Commit formatted code
+      - name: Commit and push formatted code
         if: steps.prettier-check.outputs.needs_formatting == 'true'
         run: |
           # Configure git user
@@ -59,7 +61,7 @@ jobs:
           # Only commit if there are changes
           if [ -n "$(git diff --cached)" ]; then
             git commit -m "chore: format code with Prettier [skip ci]"
-            git push origin HEAD:${{ github.head_ref }}
+            git push
           else
             echo "🎉 No formatting changes to commit."
           fi
