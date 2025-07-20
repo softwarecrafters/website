@@ -57,7 +57,7 @@ jobs:
 
       # 6. Commit & push any changes (only on push to main, not PRs)
       - name: Commit formatted code
-        if: steps.prettier-check.outputs.needs_formatting == 'true' && github.event_name == 'push'
+        if: steps.prettier-check.outputs.needs_formatting == 'true'
         run: |
           # Configure git user
           git config user.name "github-actions[bot]"
