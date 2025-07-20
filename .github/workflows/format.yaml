@@ -59,7 +59,7 @@ jobs:
           # Only commit if there are changes
           if [ -n "$(git diff --cached)" ]; then
             git commit -m "chore: format code with Prettier [skip ci]"
-            git push
+            git push origin HEAD:${{ github.head_ref }}
           else
             echo "🎉 No formatting changes to commit."
           fi
