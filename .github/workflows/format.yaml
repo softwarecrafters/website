@@ -4,25 +4,15 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
 
 jobs:
   prettier:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
-          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
           fetch-depth: 0
 
       - name: Setup Node.js
@@ -33,7 +23,7 @@ jobs:
       - name: Check Prettier formatting
         id: prettier-check
         run: |
-          if prettier --check .; then
+          if npx prettier --check .; then
             echo "needs_formatting=false" >> $GITHUB_OUTPUT
             echo "✅ Code is already formatted"
             exit 0
