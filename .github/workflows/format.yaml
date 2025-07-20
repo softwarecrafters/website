@@ -15,7 +15,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,7 +44,7 @@ jobs:
 
       - name: Run Prettier
         if: steps.prettier-check.outputs.needs_formatting == 'true'
-        run: prettier --write .
+        run: npx prettier --write .
 
       - name: Commit formatted code
         if: steps.prettier-check.outputs.needs_formatting == 'true'
