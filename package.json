@@ -46,7 +46,7 @@
     "serve": "^14.1.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.17.9",
+    "@babel/runtime": "^7.27.6",
     "ics": "^2.35.0",
     "js-joda": "^1.11.0",
     "mapbox-gl": "^2.8.2",
