@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta name="viewport"
+                content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="theme-color" content="#CA4C4C">
+        <meta name="msapplication-TileColor" content="#CA4C4C">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+
+        <meta name="twitter:card" content="summary">
+
+        <title>Next Conferences - Software Craft Communities Worldwide</title>
+        <meta property="og:title" content="Next Conferences - Software Craft Communities Worldwide">
+        <meta property="twitter:title" content="Next Conferences - Software Craft Communities Worldwide">
+
+        <meta name="description"
+                content="Discover next Software Craft conferences and events worldwide. Join the community and enhance your skills.">
+        <meta property="og:description"
+                content="Discover next Software Craft conferences and events worldwide. Join the community and enhance your skills.">
+        <meta property="twitter:description"
+                content="Discover next Software Craft conferences and events worldwide. Join the community and enhance your skills.">
+
+        <meta name="twitter:image" content="https://www.softwarecrafters.org/logo-512x512.png" />
+        <meta name="twitter:image:alt" content="The logo of Software Crafters.org" />
+
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://www.softwarecrafters.org/conferences.html">
+        <meta property="og:site_name" content="softwarecrafters.org">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+
+        <link rel="stylesheet" href="vendor/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="vendor/materialize.min.css">
+        <link rel='stylesheet' href='./style.css'>
+</head>
+
+<body id="swcraft-conferences">
+        <nav>
+                <div class="nav-wrapper">
+                        <a href="./" id="swcraft-title" class="brand-logo center">Software Crafters</a>
+                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars"></i></a>
+                        <ul id="nav-mobile" class="right hide-on-med-and-down">
+                                <li><a href="./"><i class="fa fa-map">&nbsp;</i>Map</a></li>
+                                <li><a href="https://slack.softwarecrafters.org/"><i
+                                                        class="fa fa-slack">&nbsp;</i>Slack</a></li>
+                                <li><a href="https://github.com/softwarecrafters/website"><i
+                                                        class="fa fa-github">&nbsp;</i>Add your community</a></li>
+                                <li><a href="#start-a-community" class="modal-trigger"><i
+                                                        class="fa fa-star">&nbsp;</i>Start a community</a></li>
+                        </ul>
+                        <ul class="side-nav" id="mobile-demo">
+                                <li><a href="./"><i class="fa fa-map">&nbsp;</i>Back to Map</a></li>
+                                <li><a href="https://slack.softwarecrafters.org/"><i class="fa fa-slack">&nbsp;</i>Join
+                                                the Slack team</a></li>
+                                <li><a href="https://github.com/softwarecrafters/website"><i
+                                                        class="fa fa-github">&nbsp;</i>Add your community</a></li>
+                                <li><a href="#start-a-community" class="modal-trigger"><i
+                                                        class="fa fa-star">&nbsp;</i>Start a community</a></li>
+                                <li><a href="#imprint" class="modal-trigger">Imprint</a></li>
+                        </ul>
+                </div>
+        </nav>
+
+        <div class="container" style="margin-top: 2rem;">
+                <div class="row">
+                        <div class="col s12">
+                                <h1>Next conferences</h1>
+                                <p class="lead">Discover Software Craft conferences and events happening around the
+                                        world. <a alt="ICS Subscription for events" href="/conferences.ics">Subscribe to
+                                                calendar (.ics)</a></p>
+
+                                <div id="conferences-content">
+                                        <ul id="conferences-list-page" class="collection">
+                                                <!-- Conferences will be loaded here by JavaScript -->
+                                        </ul>
+                                        <div id="loading" class="center-align">
+                                                <div class="preloader-wrapper active">
+                                                        <div class="spinner-layer spinner-red-only">
+                                                                <div class="circle-clipper left">
+                                                                        <div class="circle"></div>
+                                                                </div>
+                                                                <div class="gap-patch">
+                                                                        <div class="circle"></div>
+                                                                </div>
+                                                                <div class="circle-clipper right">
+                                                                        <div class="circle"></div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <p>Loading conferences...</p>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+
+        <div id="imprint" class="modal">
+                <div class="modal-content">
+                        <h4>Imprint</h4>
+                        <pre>
+Raimo Radczewski
+c/o Office Club
+Pappelallee 78/79
+10437 Berlin
+</pre>
+                </div>
+                <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Dismiss</a>
+                </div>
+        </div>
+
+        <div id="start-a-community" class="modal">
+                <div class="modal-content">
+                        <h4>Start a local community</h4>
+                        <p>Didn&quot;t find a local community near you? Why not start one! For the first meeting, all
+                                you need are two passionate people.</p>
+                        <p>We have a channel, <code>#orgasunited</code> (<a target="_blank"
+                                        href="slack://channel?id=C0A94BHG9&team=T0A7W9V7C"><i
+                                                class="fa fa-slack">&nbsp;</i>In-App</a> / <a target="_blank"
+                                        href="https://softwarecrafters.slack.com/messages/C0A94BHG9/"><i
+                                                class="fa fa-globe">&nbsp;</i>Web</a>), where you can find seasoned
+                                community organizers who are happy to share their experience and their insights with
+                                you.
+                                <br />If you have not joined the <em>Software Crafters Slack Team</em> yet, click <a
+                                        target="_blank" href="https://slack.softwarecrafters.org"><i
+                                                class="fa fa-envelope-o">&nbsp;</i>here</a> to join
+                        </p>
+                        <p>Right below, we listed some further readings for you about running meetups</p>
+                        <ul>
+                                <li><a target="_blank"
+                                                href="http://andygrunwald.com/blog/lesson-learned-from-running-a-local-meetup/">Lessons
+                                                learned from running a local meetup by <em>Andy Grunwald</em></a></li>
+                                <li><a target="_blank" href="https://leanpub.com/codingdojohandbook">Emily Bache's
+                                                excellent <em>The Coding Dojo Handbook</em></a></li>
+                                <li><a target="_blank" href="http://kata-log.rocks/">A very exhaustive collection of
+                                                Coding Katas by <em>@egga_de</em></a></li>
+                                <li><a target="_blank" href="https://github.com/swkBerlin/resources/"><em>Resources</em>
+                                                on running a meetup by the <em>Softwerkskammer Berlin</em></a></li>
+                        </ul>
+                </div>
+                <div class="modal-footer">
+                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Get Started</a>
+                </div>
+        </div>
+
+        <script src="vendor/jquery.min.js"></script>
+        <script src="vendor/materialize.min.js"></script>
+        <script src='./conferences-page.js'></script>
+</body>
+
+</html>
