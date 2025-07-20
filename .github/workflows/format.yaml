@@ -1,0 +1,66 @@
+name: Format Code with Prettier
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref }}
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check Prettier formatting
+        id: prettier-check
+        run: |
+          if prettier --check .; then
+            echo "needs_formatting=false" >> $GITHUB_OUTPUT
+            echo "✅ Code is already formatted"
+            exit 0
+          else
+            echo "needs_formatting=true" >> $GITHUB_OUTPUT
+            echo "❌ Code needs formatting"
+            exit 1
+          fi
+        continue-on-error: true
+
+      - name: Run Prettier
+        if: steps.prettier-check.outputs.needs_formatting == 'true'
+        run: npx prettier --write .
+
+      - name: Commit and push formatted code
+        if: steps.prettier-check.outputs.needs_formatting == 'true' && github.event_name == 'push'
+        run: |
+          # Configure git user
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Stage changes
+          git add .
+
+          # Only commit if there are changes
+          if [ -n "$(git diff --cached)" ]; then
+            git commit -m "chore: format code with Prettier [skip ci]"
+            git push
+          else
+            echo "🎉 No formatting changes to commit."
+          fi
