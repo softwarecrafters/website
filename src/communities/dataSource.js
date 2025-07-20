@@ -1,19 +1,16 @@
-import communities from "../../communities.json";
-import slugify from "slugify";
+import communities from '../../communities.json';
+import slugify from 'slugify';
 
 const dataSource = {
-  type: "geojson",
+  type: 'geojson',
   cluster: true,
   data: {
-    type: "FeatureCollection",
+    type: 'FeatureCollection',
     features: communities.map((community, i) => ({
-      type: "Feature",
+      type: 'Feature',
       geometry: {
-        type: "Point",
-        coordinates: [
-          community.location.coordinates.lng,
-          community.location.coordinates.lat,
-        ],
+        type: 'Point',
+        coordinates: [community.location.coordinates.lng, community.location.coordinates.lat],
       },
       properties: {
         id: slugify(`community-${community.name}`).toLowerCase(),

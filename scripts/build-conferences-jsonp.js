@@ -2,9 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
-const conferenceFiles = glob.sync(
-  path.resolve(__dirname, '../conferences/') + '/*.json'
-);
+const conferenceFiles = glob.sync(path.resolve(__dirname, '../conferences/') + '/*.json');
 
 // validate
 

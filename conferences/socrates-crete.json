@@ -6,7 +6,7 @@
   "icon": "icons/socrates-crete-logo.png",
   "location": {
     "city": "Rethymno",
-   "coordinates": {"lat":35.37371479051246,"lng":24.544982445945145}
+    "coordinates": { "lat": 35.37371479051246, "lng": 24.544982445945145 }
   },
   "next-date": {
     "start": "2025-10-24",

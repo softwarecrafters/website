@@ -6,7 +6,7 @@ Feel free to fork this repository and add your local community to it.
 
 ## ⚙️ Setup
 
-The website uses [rollup](https://rollupjs.org/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated and deployed via [netlify.com](https://www.netlify.com/) which detects changes.
+The website uses [rollup](https://rollupjs.org/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/\*.json files](communities/). The app is integrated and deployed via [netlify.com](https://www.netlify.com/) which detects changes.
 
 It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make sure you're using the particular [node version](.nvmrc) we are using.
 
@@ -44,20 +44,19 @@ A lot of the conferences listed here also list their "sibling"-conferences on th
 - [`conferences.js`](https://softwarecrafters.org/conferences.js) is a `jsonp`script that will call the function `window.softwarecraft_conferences_callback` with the exact same data as is contained in `conferences.json`.
 - See [`conferences_schema.json`](./conferences_schema.json) for a JSON-schema of an individual conference. The JSON will always contain an array of these.
 
-### Example code (not tested) 
+### Example code (not tested)
 
 ```html
 <script type="application/javascript">
-window.softwarecraft_conferences_callback = function(conferences) {
-  console.log("Received conferences", conferences);
-  for(let conference of conferences) {
-    document.write(conference.name)
-  }
-}
+  window.softwarecraft_conferences_callback = function (conferences) {
+    console.log('Received conferences', conferences);
+    for (let conference of conferences) {
+      document.write(conference.name);
+    }
+  };
 </script>
 <script type="application/javascript" src="https://softwarecrafters.org/conferences.js"></script>
-
-``` 
+```
 
 ## 👍 Contributing to the website
 
@@ -74,4 +73,4 @@ To be documented. For the moment, have a look at our [target/vendor/](target/ven
 - mapbox
 - jquery
 
-The logo is a remix of [🌐 from emojiOne](https://github.com/emojione/emojione/tree/2.2.7/assets) released under *Creative Commons Attribution 4.0 International* and the [Softwerkskammer Logo](https://github.com/softwerkskammer/softwerkskammer-logos) released under *Creative Commons Attribution 3.0*.
+The logo is a remix of [🌐 from emojiOne](https://github.com/emojione/emojione/tree/2.2.7/assets) released under _Creative Commons Attribution 4.0 International_ and the [Softwerkskammer Logo](https://github.com/softwerkskammer/softwerkskammer-logos) released under _Creative Commons Attribution 3.0_.

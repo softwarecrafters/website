@@ -2,9 +2,7 @@ const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
-const communityFiles = glob.sync(
-  path.resolve(__dirname, '../communities/') + '/*.json'
-);
+const communityFiles = glob.sync(path.resolve(__dirname, '../communities/') + '/*.json');
 
 // validate
 

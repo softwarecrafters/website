@@ -1,12 +1,12 @@
 {
-    "name": "SoCraTes Rennes",
-    "url": "https://socrates-rennes.github.io/",
-    "code-of-conduct": "https://socrates-rennes.github.io/#a-propos",
-    "next-date": {
-        "start": "2023-05-12",
-        "end": "2023-05-12"
-    },
-    "location": {
-        "coordinates": { "lat": 48.1151, "lng": -1.6405 }
-    }
+  "name": "SoCraTes Rennes",
+  "url": "https://socrates-rennes.github.io/",
+  "code-of-conduct": "https://socrates-rennes.github.io/#a-propos",
+  "next-date": {
+    "start": "2023-05-12",
+    "end": "2023-05-12"
+  },
+  "location": {
+    "coordinates": { "lat": 48.1151, "lng": -1.6405 }
+  }
 }

@@ -8,7 +8,7 @@
   },
   "covid19-policy": "Masks and daily tests (provided by us)",
   "location": {
-    "coordinates": { "lat": 51.608682, "lng":-1.315764 }
+    "coordinates": { "lat": 51.608682, "lng": -1.315764 }
   },
   "icon": "icons/socrates-uk.png"
 }
