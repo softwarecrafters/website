@@ -1,6 +1,4 @@
 # ![Favicon](target/apple-icon-57x57.png) Software Craft Website
-[![Build Status](https://travis-ci.org/softwarecrafters/website.svg?branch=main)](https://travis-ci.org/softwarecrafters/website) [![Deps](https://david-dm.org/softwarecrafters/website.svg)](https://david-dm.org/softwarecrafters/website) [![DevDeps](https://david-dm.org/softwarecrafters/website/dev-status.svg)](https://david-dm.org/softwarecrafters/website)
-
 
 The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
 
@@ -8,7 +6,7 @@ Feel free to fork this repository and add your local community to it.
 
 ## ⚙️ Setup
 
-The website uses [rollup](https://rollupjs.org/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated via [Travis](https://travis-ci.org/softwarecrafters/website) and deployed to [netlify.com](https://www.netlify.com/).
+The website uses [rollup](https://rollupjs.org/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/*.json files](communities/). The app is integrated and deployed via [netlify.com](https://www.netlify.com/) which detects changes.
 
 It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make sure you're using the particular [node version](.nvmrc) we are using.
 
@@ -24,7 +22,7 @@ yarn test             # Validate the present schemata
 
 ## 🌐 Adding your community / conference
 
-If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through Travis (resp. for [conferences](conferences_schema.json)).
+If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through the build system (resp. for [conferences](conferences_schema.json)).
 
 1. Fork this repository
 2. Create a new file in `communities/${YOURCITYNAME}.json` (resp. `conferences/${YOURCONFERENCE}.json`)
