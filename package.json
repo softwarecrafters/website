@@ -30,7 +30,7 @@
     "@babel/plugin-external-helpers": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
-    "ajv": "^8.11.0",
+    "ajv": "^8.17.1",
     "babel-jest": "^28.0.3",
     "glob": "^8.0.1",
     "jest": "^28.0.3",
@@ -43,7 +43,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-sass": "^1.15.3",
     "sass": "^1.51.0",
-    "serve": "^14.1.2"
+    "serve": "^14.2.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.27.6",
