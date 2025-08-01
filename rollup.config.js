@@ -18,6 +18,8 @@ export default {
       options: {
         style: 'compressed',
       },
+      include: ['**/*.css', '**/*.sass', '**/*.scss'],
+      exclude: '',
     }),
     json(),
     babel({
