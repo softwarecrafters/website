@@ -54,10 +54,6 @@ strong {
 
   #conferences-overlay {
     display: none;
-    @include desktop {
-      display: block;
-    }
-
     position: absolute;
     top: 10px;
     right: 10px;
@@ -67,6 +63,10 @@ strong {
     border-radius: 3px;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
     padding: 2px 10px;
+
+    @include desktop {
+      display: block;
+    }
 
     h2 {
       font-size: 1.4rem;
