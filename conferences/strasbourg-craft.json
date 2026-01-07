@@ -1,0 +1,15 @@
+{
+  "name": "Strasbourg Craft",
+  "url": "https://strasbourg-craft.fr/",
+  "code-of-conduct": "TBD i asked the organizer",
+  "next-date": {
+    "start": "2026-02-12",
+    "end": "2026-02-12"
+  },
+  "location": {
+    "coordinates": {
+      "lat": 48.57714333674619,
+      "lng": 7.770079442429989
+    }
+  }
+}
