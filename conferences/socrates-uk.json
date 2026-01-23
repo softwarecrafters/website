@@ -3,10 +3,10 @@
   "url": "https://socratesuk.org/",
   "code-of-conduct": "https://socratesuk.org/code_of_conduct.html",
   "next-date": {
-    "start": "2025-05-29",
-    "end": "2025-06-01"
+    "start": "2026-06-18",
+    "end": "2026-06-21"
   },
-  "covid19-policy": "Masks and daily tests (provided by us)",
+  "covid19-policy": "Masks recommended, daily tests mandatory (both provided by us) and air filtering",
   "location": {
     "coordinates": { "lat": 51.608682, "lng": -1.315764 }
   },
