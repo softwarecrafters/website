@@ -1,0 +1,13 @@
+{
+  "name": "Open Security Conference",
+  "url": "https://opensecurityconference.org/",
+  "code-of-conduct": "https://opensecurityconference.org/about/values/",
+  "next-date": {
+    "start": "2026-11-05",
+    "end": "2026-11-08"
+  },
+  "location": {
+    "city": "Rückersbach",
+    "coordinates": { "lat": 50.06738, "lng": 9.10824 }
+  }
+}
