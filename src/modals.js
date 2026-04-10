@@ -3,9 +3,7 @@ const dismissAll = () => {
 };
 
 const dismissAllBut = modalId => {
-  $('.modal')
-    .not(modalId)
-    .modal('close');
+  $('.modal').not(modalId).modal('close');
   $(modalId).modal('open');
 };
 
@@ -18,11 +16,7 @@ const addModalHashToUrl = modal => {
 };
 
 const clearHashInUrl = () => {
-  window.history.pushState(
-    {},
-    document.title,
-    window.location.pathname + window.location.search
-  );
+  window.history.pushState({}, document.title, window.location.pathname + window.location.search);
 };
 
 const initModals = () => {
@@ -36,7 +30,7 @@ const initModals = () => {
 
   $('.modal').modal({
     ready: addModalHashToUrl,
-    complete: clearHashInUrl
+    complete: clearHashInUrl,
   });
 
   if (window.location.hash) {

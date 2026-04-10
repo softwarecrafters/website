@@ -1,21 +1,32 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Schema for Conference JSON Files",
   "type": "object",
   "properties": {
+    "$schema": {
+      "description": "Schema reference",
+      "type": "string",
+      "format": "uri"
+    },
     "name": {
       "description": "Name of your community",
       "type": "string"
     },
+    "description": {
+      "description": "A headline for your conference",
+      "type": "string"
+    },
     "url": {
       "description": "URL leading to further information about your conference",
-      "type": "string"
+      "type": "string",
+      "format": "uri"
     },
     "code-of-conduct": {
       "description": "URL to your code of conduct",
       "type": "string"
     },
-    "covid19-policy": {
-      "description": "A brief summary of the measures taken with regards to covid19. Helpful for folks to decide whether to attend or not.",
+    "health-policy": {
+      "description": "A brief summary of the measures taken with regards to attendee health.",
       "type": "string"
     },
     "next-date": {
@@ -35,10 +46,41 @@
       "additionalProperties": false
     },
     "location": {
+      "oneOf": [
+        {
+          "$ref": "#/definitions/real_location"
+        },
+        {
+          "$ref": "#/definitions/virtual_location"
+        }
+      ]
+    },
+    "icon": {
+      "description": "The relative url to an icon in 64x64 PNG format. Should be places in /target/icons/",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": ["name", "url", "location", "code-of-conduct"],
+  "definitions": {
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "virtual_location": {
+      "type": "string",
+      "enum": ["virtual"]
+    },
+    "real_location": {
       "description": "Information about where to place your conference on the map",
       "type": "object",
       "properties": {
-        "city": { "type": "string", "description": "Not used right now" },
+        "city": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
         "coordinates": {
           "type": "object",
           "description": "Long/Lat values of where to place your community.",
@@ -62,18 +104,6 @@
       },
       "additionalProperties": false,
       "required": ["coordinates"]
-    },
-    "icon": {
-      "description": "The relative url to an icon in 64x64 PNG format. Should be places in /target/icons/",
-      "type": "string"
-    }
-  },
-  "additionalProperties": false,
-  "required": ["name", "url", "location", "code-of-conduct"],
-  "definitions": {
-    "date": {
-      "type": "string",
-      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
     }
   }
 }

@@ -1,12 +1,19 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Germany",
   "url": "https://www.socrates-conference.de/",
   "code-of-conduct": "https://www.socrates-conference.de/values",
+  "health-policy": "Lateral flow tests at sign-in and afterwards provided for daily self-administered testing.",
   "next-date": {
     "start": "2026-08-27",
     "end": "2026-08-30"
   },
   "location": {
-    "coordinates": { "lat": 53.00146, "lng": 9.85963 }
+    "city": "Soltau",
+    "country": "Germany",
+    "coordinates": {
+      "lat": 53.00146,
+      "lng": 9.85963
+    }
   }
 }

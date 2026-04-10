@@ -1,12 +1,18 @@
 {
-    "name": "SoCraTes Rennes",
-    "url": "https://socrates-rennes.github.io/",
-    "code-of-conduct": "https://socrates-rennes.github.io/#a-propos",
-    "next-date": {
-        "start": "2023-05-12",
-        "end": "2023-05-12"
-    },
-    "location": {
-        "coordinates": { "lat": 48.1151, "lng": -1.6405 }
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
+  "name": "SoCraTes Rennes",
+  "url": "https://socrates-rennes.github.io/",
+  "code-of-conduct": "https://socrates-rennes.github.io/#a-propos",
+  "next-date": {
+    "start": "2026-03-31",
+    "end": "2026-03-31"
+  },
+  "location": {
+    "city": "Rennes",
+    "country": "France",
+    "coordinates": {
+      "lat": 48.1151,
+      "lng": -1.6405
     }
+  }
 }

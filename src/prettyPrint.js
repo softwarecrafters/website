@@ -1,5 +1,4 @@
 const prettyPrint = days => {
-
   if (days >= 30) {
     if (Math.round(days / 30) === 1) {
       return `1 month`;

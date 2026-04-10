@@ -1,12 +1,17 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Crete",
   "url": "https://socrates-crete.org/",
   "code-of-conduct": "https://socrates-crete.org/code_of_conduct.html",
-  "covid19-policy": "https://socrates-crete.org/covid-19.html",
+  "health-policy": "https://socrates-crete.org/covid-19.html",
   "icon": "icons/socrates-crete-logo.png",
   "location": {
     "city": "Rethymno",
-   "coordinates": {"lat":35.37371479051246,"lng":24.544982445945145}
+    "country": "Greece",
+    "coordinates": {
+      "lat": 35.37371479051246,
+      "lng": 24.544982445945145
+    }
   },
   "next-date": {
     "start": "2026-10-22",

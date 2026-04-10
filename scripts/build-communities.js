@@ -1,10 +1,11 @@
-const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
-const communityFiles = glob.sync(
-  path.resolve(__dirname, '../communities/') + '/*.json'
-);
+const communitiesDir = path.resolve(__dirname, '../communities/');
+const communityFiles = fs
+  .readdirSync(communitiesDir)
+  .filter(file => file.endsWith('.json'))
+  .map(file => path.join(communitiesDir, file));
 
 // validate
 

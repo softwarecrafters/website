@@ -1,4 +1,5 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Canada",
   "url": "https://socrates-ca.github.io/",
   "code-of-conduct": "https://github.com/socrates-ca/socrates-ca.github.io/wiki/Code-of-Conduct",
@@ -7,6 +8,11 @@
     "end": "2025-10-05"
   },
   "location": {
-    "coordinates": { "lat": 45.990358, "lng": -74.749357 }
+    "city": "Amherst",
+    "country": "Canada",
+    "coordinates": {
+      "lat": 45.990358,
+      "lng": -74.749357
+    }
   }
 }

@@ -1,17 +1,11 @@
 export const loadIcons = async (map, dataSource) => {
-  const featuresWithIcons = dataSource.data.features.filter(
-    feature => !!feature.properties.icon
-  );
+  const featuresWithIcons = dataSource.data.features.filter(feature => !!feature.properties.icon);
 
   const allPromises = featuresWithIcons.map(
     feature =>
       new Promise((resolve, reject) => {
-        map.loadImage(
-          feature.properties.icon,
-          (err, data) =>
-            err
-              ? reject(err)
-              : resolve({ id: feature.properties.id, imageData: data })
+        map.loadImage(feature.properties.icon, (err, data) =>
+          err ? reject(err) : resolve({ id: feature.properties.id, imageData: data })
         );
       })
   );
@@ -21,7 +15,7 @@ export const loadIcons = async (map, dataSource) => {
     try {
       loadedIcons.push(await promise);
     } catch (e) {
-      console.error("Error while loading icon", e);
+      console.error('Error while loading icon', e);
     }
   }
 

@@ -1,10 +1,11 @@
-const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
 
-const conferenceFiles = glob.sync(
-  path.resolve(__dirname, '../conferences/') + '/*.json'
-);
+const conferencesDir = path.resolve(__dirname, '../conferences/');
+const conferenceFiles = fs
+  .readdirSync(conferencesDir)
+  .filter(file => file.endsWith('.json'))
+  .map(file => path.join(conferencesDir, file));
 
 // validate
 
@@ -16,6 +17,10 @@ const conferences = conferenceFiles.map(file => {
 fs.writeFileSync(
   path.resolve(__dirname, '../conferences.js'),
   `(function() {
-    typeof window.softwarecraft_conferences_callback === 'function' && window.softwarecraft_conferences_callback(${JSON.stringify(conferences, undefined, 2)});
+    typeof window.softwarecraft_conferences_callback === 'function' && window.softwarecraft_conferences_callback(${JSON.stringify(
+      conferences,
+      undefined,
+      2
+    )});
   })();`
 );

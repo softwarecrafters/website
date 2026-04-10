@@ -1,12 +1,18 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes France",
   "url": "https://socrates-fr.github.io/",
   "code-of-conduct": "https://socrates-fr.github.io/#portfolioModal2",
   "next-date": {
-    "start": "2023-10-26",
-    "end": "2023-10-29"
+    "start": "2026-03-26",
+    "end": "2026-03-29"
   },
   "location": {
-    "coordinates": { "lat": 49.267620, "lng": 1.897510 }
+    "city": "Uchaux",
+    "country": "France",
+    "coordinates": {
+      "lat": 49.26762,
+      "lng": 1.89751
+    }
   }
 }

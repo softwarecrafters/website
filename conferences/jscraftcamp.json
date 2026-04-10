@@ -1,12 +1,18 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "JSCraftCamp",
   "url": "http://jscraftcamp.org/",
   "code-of-conduct": "http://jscraftcamp.org/values",
   "next-date": {
-    "start": "2026-06-12",
-    "end": "2026-06-13"
+  "start": "2026-06-12",
+  "end": "2026-06-13"
   },
   "location": {
-    "coordinates": { "lat": 48.09459548892182, "lng": 11.505345107934543 }
+    "city": "Munich",
+    "country": "Germany",
+    "coordinates": {
+      "lat": 48.09459548892182,
+      "lng": 11.505345107934543
+    }
   }
 }

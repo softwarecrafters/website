@@ -4,8 +4,8 @@ const fetchP = url =>
     window[cbName] = (...args) => {
       delete window[cbName];
       resolve(...args);
-    }
-    const script = document.createElement("script");
+    };
+    const script = document.createElement('script');
     script.src = `${url}${cbName}`;
     document.body.appendChild(script);
   });

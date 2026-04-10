@@ -1,12 +1,11 @@
 {
-  "name": "Software Crafters Unconference",
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
+  "name": "Software Crafters Unconference Online",
   "url": "http://scunconf.com/",
   "code-of-conduct": "https://scunconf.com/#coc",
   "next-date": {
-    "start": "2020-09-18",
-    "end": "2020-09-18"
+    "start": "2026-02-06",
+    "end": "2026-02-06"
   },
-  "location": {
-    "coordinates": { "lat": 34.14901, "lng": -84.18671 }
-  }
+  "location": "virtual"
 }

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
+  "name": "Nantes Craft",
+  "url": "https://www.nantes-craft.fr",
+  "code-of-conduct": "https://www.nantes-craft.fr/code-of-conduct.html",
+  "next-date": {
+    "start": "2025-10-02",
+    "end": "2025-10-02"
+  },
+  "location": {
+    "city": "Nantes",
+    "country": "France",
+    "coordinates": {
+      "lat": 47.20651749592204,
+      "lng": -1.5596684650439272
+    }
+  }
+}

@@ -10,20 +10,18 @@ export default map => {
 
   const craftersGeocoder = query => {
     return sources
-      .filter(feature =>
-        feature.properties.name.toLowerCase().includes(query.toLowerCase())
-      )
+      .filter(feature => feature.properties.name.toLowerCase().includes(query.toLowerCase()))
       .map(feature => ({
         id: feature.properties.id,
         text: feature.properties.name,
         place_name: feature.properties.name,
         place_type: 'place',
-        center: feature.geometry.coordinates
+        center: feature.geometry.coordinates,
       }));
   };
 
   return new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
-    localGeocoder: craftersGeocoder
+    localGeocoder: craftersGeocoder,
   });
 };

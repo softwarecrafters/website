@@ -1,9 +1,15 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Maroc",
   "url": "https://socrates-ma.github.io/",
   "code-of-conduct": "https://socrates-ma.github.io/#portfolioModal2",
   "location": {
-    "coordinates": { "lat": 31.67945163134224, "lng": -7.934092197952625 }
+    "city": "Bouznika",
+    "country": "Morocco",
+    "coordinates": {
+      "lat": 31.67945163134224,
+      "lng": -7.934092197952625
+    }
   },
   "next-date": {
     "start": "2025-09-04",

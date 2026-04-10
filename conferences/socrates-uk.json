@@ -1,4 +1,5 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes UK",
   "url": "https://socratesuk.org/",
   "code-of-conduct": "https://socratesuk.org/code_of_conduct.html",
@@ -6,9 +7,14 @@
     "start": "2026-06-18",
     "end": "2026-06-21"
   },
-  "covid19-policy": "Masks and daily tests (provided by us)",
+  "health-policy": "Masks recommended, daily tests mandatory (both provided by us) and air filtering",
   "location": {
-    "coordinates": { "lat": 51.608682, "lng":-1.315764 }
+    "city": "Abingdon",
+    "country": "United Kingdom",
+    "coordinates": {
+      "lat": 51.608682,
+      "lng": -1.315764
+    }
   },
   "icon": "icons/socrates-uk.png"
 }

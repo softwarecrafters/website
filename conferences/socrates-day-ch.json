@@ -1,12 +1,15 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Day Switzerland",
   "url": "http://socrates-day.ch/",
   "code-of-conduct": "https://github.com/socrates-ch/socrates-day/wiki/Code-of-Conduct",
   "next-date": {
-    "start": "2021-09-24",
-    "end": "2021-09-24"
+    "start": "2025-09-19",
+    "end": "2025-09-19"
   },
   "location": {
+    "city": "Zürich",
+    "country": "Switzerland",
     "coordinates": {
       "lat": 47.36742,
       "lng": 8.55399

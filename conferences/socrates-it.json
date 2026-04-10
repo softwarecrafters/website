@@ -1,4 +1,5 @@
 {
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "SoCraTes Italy",
   "url": "http://www.socrates-conference.it/",
   "code-of-conduct": "http://www.socrates-conference.it/",
@@ -7,6 +8,8 @@
     "end": "2024-10-05"
   },
   "location": {
+    "city": "Rimini",
+    "country": "Italy",
     "coordinates": { "lat": 44.06923, "lng": 12.57958 }
   }
 }
