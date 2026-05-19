@@ -1,0 +1,18 @@
+{
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
+  "name": "AlpesCraft",
+  "url": "https://www.alpescraft.fr",
+  "code-of-conduct": "https://www.alpescraft.fr/coc",
+  "location": {
+    "city": "Grenoble",
+    "country": "France",
+    "coordinates": {
+      "lat": 45.155391846729174,
+      "lng": 5.7355876870381906
+    }
+  },
+  "next-date": {
+    "start": "2026-06-04",
+    "end": "2026-06-05"
+  }
+}
