@@ -1,0 +1,18 @@
+{
+  "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
+  "name": "Geek Camp",
+  "url": "https://mobilizon.fr/events/6090cd9f-8178-4103-b94b-5fb73d5edf3f",
+  "code-of-conduct": "https://okiwi.org/reglement-interieur.html",
+  "next-date": {
+    "start": "2026-06-26",
+    "end": "2026-06-28"
+  },
+  "location": {
+    "city": "Ruffiac",
+    "country": "France",
+    "coordinates": {
+      "lat": 44.36133049089696,
+      "lng": 0.03273914485217233
+    }
+  }
+}
