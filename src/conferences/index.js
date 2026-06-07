@@ -153,14 +153,20 @@ const renderConferenceList = (map, list, conferences) => {
     .map(conference => {
       const li = document.createElement('li');
       const link = document.createElement('a');
+      const date = document.createElement('span');
+
       link.innerText = conference.properties.name;
       link.href = `#${conference.properties.id}`;
       link.addEventListener('click', event => {
         event.preventDefault();
         flyTo(conference, map);
       });
+
+      date.className = 'conference-date';
+      date.textContent = ` (${conference.properties.start})`;
+
       li.appendChild(link);
-      li.append(` (${conference.properties.start})`);
+      li.appendChild(date);
       return li;
     })
     .forEach(li => list.appendChild(li));

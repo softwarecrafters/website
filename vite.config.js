@@ -48,16 +48,8 @@ export default defineConfig({
       },
     },
   ],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `$injectedColor: orange;`,
-      },
-    },
-  },
   server: {
     port: 3000,
     open: true,
-    middlewareMode: false,
   },
 });

@@ -3,6 +3,9 @@ const getModalElements = () => document.querySelectorAll('.modal');
 const OPEN_MODAL_CLASS = 'is-open';
 const OPEN_BODY_CLASS = 'modal-open';
 
+let activeModal = null;
+let lastFocusedElement = null;
+
 const getBackdrop = modal => modal.nextElementSibling;
 
 const ensureBackdrop = modal => {
@@ -26,21 +29,59 @@ const updateBodyModalState = () => {
   document.body.classList.toggle(OPEN_BODY_CLASS, hasOpenModal);
 };
 
+const FOCUSABLE_SELECTOR =
+  'a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+const getFocusableElements = modal =>
+  Array.from(modal.querySelectorAll(FOCUSABLE_SELECTOR)).filter(el => {
+    if (!(el instanceof HTMLElement)) {
+      return false;
+    }
+
+    return !el.hasAttribute('disabled') && el.getAttribute('aria-hidden') !== 'true';
+  });
+
+const focusFirstElement = modal => {
+  const focusable = getFocusableElements(modal);
+  if (focusable.length > 0) {
+    focusable[0].focus();
+    return;
+  }
+
+  modal.focus();
+};
+
+const restoreFocus = () => {
+  if (lastFocusedElement instanceof HTMLElement && document.contains(lastFocusedElement)) {
+    lastFocusedElement.focus();
+  }
+};
+
 const openModal = modal => {
   if (!modal) {
     return;
   }
 
   modal.classList.add(OPEN_MODAL_CLASS);
+  modal.removeAttribute('inert');
+  modal.inert = false;
   modal.setAttribute('aria-hidden', 'false');
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('tabindex', '-1');
   modal.style.opacity = '1';
   modal.style.pointerEvents = 'auto';
   const backdrop = ensureBackdrop(modal);
   backdrop.classList.add(OPEN_MODAL_CLASS);
   backdrop.style.opacity = '1';
   backdrop.style.pointerEvents = 'auto';
+  activeModal = modal;
   updateBodyModalState();
   addModalHashToUrl(modal);
+
+  requestAnimationFrame(() => {
+    focusFirstElement(modal);
+  });
 };
 
 const closeModal = modal => {
@@ -50,6 +91,8 @@ const closeModal = modal => {
 
   modal.classList.remove(OPEN_MODAL_CLASS);
   modal.setAttribute('aria-hidden', 'true');
+  modal.setAttribute('inert', '');
+  modal.inert = true;
   modal.style.opacity = '0';
   modal.style.pointerEvents = 'none';
   const backdrop = getBackdrop(modal);
@@ -57,6 +100,9 @@ const closeModal = modal => {
   if (backdrop) {
     backdrop.style.opacity = '0';
     backdrop.style.pointerEvents = 'none';
+  }
+  if (activeModal === modal) {
+    activeModal = null;
   }
   updateBodyModalState();
 };
@@ -66,6 +112,7 @@ const dismissAll = () => {
     closeModal(modal);
   });
 
+  restoreFocus();
   clearHashInUrl();
 };
 
@@ -117,6 +164,7 @@ const bindModalTriggers = () => {
     }
 
     event.preventDefault();
+    lastFocusedElement = trigger;
     dismissAllBut(hash);
   });
 };
@@ -139,6 +187,31 @@ const bindModalCloseButtons = () => {
 
 const bindEscapeClose = () => {
   document.addEventListener('keydown', event => {
+    if (event.key === 'Tab' && activeModal) {
+      const focusable = getFocusableElements(activeModal);
+      if (focusable.length === 0) {
+        event.preventDefault();
+        activeModal.focus();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const current = document.activeElement;
+
+      if (event.shiftKey && current === first) {
+        event.preventDefault();
+        last.focus();
+        return;
+      }
+
+      if (!event.shiftKey && current === last) {
+        event.preventDefault();
+        first.focus();
+        return;
+      }
+    }
+
     if (event.key === 'Escape') {
       dismissAll();
     }
@@ -148,6 +221,11 @@ const bindEscapeClose = () => {
 const initModals = () => {
   Array.from(getModalElements()).forEach(modal => {
     modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('inert', '');
+    modal.inert = true;
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('tabindex', '-1');
     ensureBackdrop(modal);
   });
 

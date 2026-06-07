@@ -1,4 +1,4 @@
-import '../src/style.scss';
+import './style.scss';
 import initModals from './modals.js';
 import initSidenav from './sidenav.js';
 
@@ -6,12 +6,12 @@ const CONFERENCES_DATA_URL = './conferences.json';
 
 const showErrorMessage = element => {
   element.innerHTML =
-    '<p class="center-align">Error loading conferences. Please try again later.</p>';
+    '<div class="alert alert-error" role="alert">Unable to load conferences right now. Please try again in a moment.</div>';
 };
 
 const showNoConferencesMessage = element => {
   element.innerHTML =
-    '<li class="collection-item"><span class="grey-text">No upcoming conferences found.</span></li>';
+    '<li class="collection-item"><span>No upcoming conferences found.</span></li>';
 };
 
 const getUpcomingConferences = (conferences, today) =>
@@ -53,7 +53,7 @@ const createConferenceItem = conference => {
   const dateDisplay = formatDateDisplay(conference['next-date'].start, conference['next-date'].end);
 
   const locationHtml = conference.location?.name
-    ? `<p class="grey-text conference-meta conference-location">
+    ? `<p class="conference-meta">
           <i class="fa fa-map-marker conference-meta-icon"></i>${conference.location.name}
          </p>`
     : '';
@@ -63,12 +63,12 @@ const createConferenceItem = conference => {
     : '';
 
   listItem.innerHTML = `
-      <h5 class="title conference-title">
-        <a href="${conference.url}" target="_blank" rel="noopener noreferrer" class="blue-text text-darken-2">
+      <h5>
+        <a href="${conference.url}" target="_blank" rel="noopener noreferrer">
           ${conference.name}
         </a>
       </h5>
-      <p class="grey-text conference-meta conference-date">
+      <p class="conference-meta">
         <i class="fa fa-calendar conference-meta-icon"></i>${dateDisplay}
       </p>
       ${locationHtml}
@@ -86,6 +86,9 @@ const displayConferences = (conferences, containerElement) => {
 
 const loadConferences = async () => {
   const response = await fetch(CONFERENCES_DATA_URL);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch conferences: ${response.status}`);
+  }
   return response.json();
 };
 

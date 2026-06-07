@@ -4,10 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#CA4C4C" />
     <meta name="msapplication-TileColor" content="#CA4C4C" />
@@ -85,7 +82,8 @@
   </head>
 
   <body id="swcraft-conferences">
-    <nav>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Primary">
       <div class="nav-wrapper">
         <a href="./" id="swcraft-title" class="brand-logo center">Software Crafters</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa fa-bars"></i></a>
@@ -131,11 +129,11 @@
       </div>
     </nav>
 
-    <div class="container conferences-container">
+    <main id="main-content" class="container conferences-container" tabindex="-1">
       <h1>Next conferences</h1>
       <p class="lead">
         Discover Software Craft conferences and events happening around the world.
-        <a alt="ICS Subscription for events" href="./conferences.ics"
+        <a aria-label="ICS Subscription for events" href="./conferences.ics"
           >Subscribe to calendar (.ics)</a
         >
       </p>
@@ -144,15 +142,18 @@
         <ul id="conferences-list-page" class="collection">
           <!-- Conferences will be loaded here by JavaScript -->
         </ul>
-        <div id="loading" class="center-align">
+        <div id="loading">
           <div class="preloader-wrapper" aria-hidden="true"></div>
           <p>Loading conferences...</p>
         </div>
       </div>
-    </div>
+    </main>
 
     <div id="imprint" class="modal">
       <div class="modal-content">
+        <button type="button" class="modal-close modal-close-icon" aria-label="Close modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h4>Imprint</h4>
         <pre>
 Raimo Radczewski
@@ -169,9 +170,12 @@ Pappelallee 78/79
 
     <div id="start-a-community" class="modal">
       <div class="modal-content">
+        <button type="button" class="modal-close modal-close-icon" aria-label="Close modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h4>Start a local community</h4>
         <p>
-          Didn&quot;t find a local community near you? Why not start one! For the first meeting, all
+          Didn&apos;t find a local community near you? Why not start one! For the first meeting, all
           you need are two passionate people.
         </p>
         <p>

@@ -4,10 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="theme-color" content="#CA4C4C" />
     <meta name="msapplication-TileColor" content="#CA4C4C" />
@@ -90,7 +87,8 @@
   </head>
 
   <body id="swcraft-communities">
-    <nav>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <nav aria-label="Primary">
       <div class="nav-wrapper">
         <a href="./" id="swcraft-title" class="brand-logo center">Software Crafters</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fa fa-bars"></i></a>
@@ -135,21 +133,30 @@
         </ul>
       </div>
     </nav>
-    <div id="map-container">
-      <div id="map"></div>
-      <div id="conferences-overlay">
-        <h2 id="conferences-title">
-          Next conferences
-          <small>(<a alt="ICS Subscription for events" href="./conferences.ics">.ics</a>)</small>
-        </h2>
-        <ul id="conferences-list"></ul>
-        <a id="conferences-list-all" href="#">Show all upcoming...</a>
+    <main id="main-content" tabindex="-1">
+      <p id="map-status" class="map-status" role="status" aria-live="polite">Loading map...</p>
+      <div id="map-container">
+        <div id="map"></div>
+        <div id="conferences-overlay">
+          <h2 id="conferences-title">
+            Next conferences
+            <small
+              >(<a aria-label="ICS Subscription for events" href="./conferences.ics">.ics</a
+              >)</small
+            >
+          </h2>
+          <ul id="conferences-list"></ul>
+          <a id="conferences-list-all" href="#">Show all upcoming...</a>
+        </div>
+        <a href="#imprint" class="modal-trigger" id="imprint-link">Imprint</a>
       </div>
-      <a href="#imprint" class="modal-trigger" id="imprint-link">Imprint</a>
-    </div>
+    </main>
 
     <div id="imprint" class="modal">
       <div class="modal-content">
+        <button type="button" class="modal-close modal-close-icon" aria-label="Close modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h4>Imprint</h4>
         <pre>
 Raimo Radczewski
@@ -166,9 +173,12 @@ Pappelallee 78/79
 
     <div id="start-a-community" class="modal">
       <div class="modal-content">
+        <button type="button" class="modal-close modal-close-icon" aria-label="Close modal">
+          <span aria-hidden="true">&times;</span>
+        </button>
         <h4>Start a local community</h4>
         <p>
-          Didn&quot;t find a local community near you? Why not start one! For the first meeting, all
+          Didn&apos;t find a local community near you? Why not start one! For the first meeting, all
           you need are two passionate people.
         </p>
         <p>

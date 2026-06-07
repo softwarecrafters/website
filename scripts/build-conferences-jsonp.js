@@ -14,9 +14,9 @@ fs.writeFileSync(
   path.resolve(__dirname, '../conferences.js'),
   `(function() {
     typeof window.softwarecraft_conferences_callback === 'function' && window.softwarecraft_conferences_callback(${JSON.stringify(
-    conferences,
-    undefined,
-    2
-  )});
+      conferences,
+      undefined,
+      2
+    )});
   })();`
 );

@@ -40,10 +40,18 @@ const FALLBACK_STYLE = {
   ],
 };
 
-const addClickDebugLogger = map => {
-  map.on('click', event => {
-    console.log(JSON.stringify({ lat: event.lngLat.lat, lng: event.lngLat.lng }));
-  });
+const setMapStatus = (message, type = 'info') => {
+  const statusEl = document.getElementById('map-status');
+  if (!statusEl) {
+    return;
+  }
+
+  statusEl.textContent = message;
+  statusEl.classList.remove('map-status--error');
+  if (type === 'error') {
+    statusEl.classList.add('map-status--error');
+  }
+  statusEl.hidden = !message;
 };
 
 const configureFeature = async (name, configureFn, map, geocoder) => {
@@ -51,6 +59,10 @@ const configureFeature = async (name, configureFn, map, geocoder) => {
     await configureFn(map, geocoder);
   } catch (err) {
     console.error(`Failed to configure ${name}`, err?.stack || err);
+    setMapStatus(
+      'Some map layers could not be loaded. Core map functionality is still available.',
+      'error'
+    );
   }
 };
 
@@ -61,7 +73,7 @@ const configureMapFeatures = async map => {
   await configureFeature('communities', configureCommunities, map, geocoder);
   await configureFeature('conferences', configureConferences, map, geocoder);
 
-  addClickDebugLogger(map);
+  setMapStatus('');
 };
 
 const createMap = () =>
@@ -93,10 +105,19 @@ const setupStyleLoading = (map, onReady) => {
       return;
     }
     console.warn('Map style load timed out, switching to local fallback style');
+    setMapStatus(
+      'Map is loading slowly. Showing a simplified fallback while we continue loading.',
+      'error'
+    );
     map.setStyle(FALLBACK_STYLE);
   }, STYLE_FALLBACK_TIMEOUT_MS);
 
   map.on('style.load', readyOnce);
+  map.on('error', () => {
+    if (!isReady) {
+      setMapStatus('Map encountered a loading problem. Please refresh the page.', 'error');
+    }
+  });
 };
 
 const run = () => {

@@ -13,5 +13,7 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci --no-audit
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
       - name: Test
         run: npm test
