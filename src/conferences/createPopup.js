@@ -36,7 +36,6 @@ const createIcon = conference =>
 export default conference => {
   const div = document.createElement('div');
   div.classList.add('popup');
-  div.classList.add('conference-popup');
 
   const icon = createIcon(conference);
 

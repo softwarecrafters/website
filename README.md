@@ -59,17 +59,31 @@ A lot of the conferences listed here also list their "sibling"-conferences on th
 
 ## 👍 Contributing to the website
 
-TBD
+Contributions are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+3. Run `npm test` and `npm run build`
+4. Open a pull request
 
 ## 💻 3rd-party libraries used
 
-To be documented. For the moment, have a look at our [static/vendor/](static/vendor) directory and our [package.json](package.json).
+This project uses npm packages for dependency management, while some browser assets are committed to [static/vendor/](static/vendor) and referenced directly in HTML.
 
-- materialize-css
+- Source packages (managed via npm):
+  - [@fortawesome/fontawesome-free](https://www.npmjs.com/package/@fortawesome/fontawesome-free)
+  - [mapbox-gl](https://www.npmjs.com/package/mapbox-gl)
+  - [@mapbox/mapbox-gl-geocoder](https://www.npmjs.com/package/@mapbox/mapbox-gl-geocoder)
+- Runtime references:
+  - [index.html](index.html) and [conferences.html](conferences.html) load `./vendor/...` assets from [static/vendor/](static/vendor)
+  - application JS/CSS is bundled with Vite
+
+When updating vendor-source packages, copy the needed built assets from `node_modules` into [static/vendor/](static/vendor), then run `npm test` and `npm run build`.
+
 - vite
 - babel
-- font-awesome
+- @fortawesome/fontawesome-free
 - mapbox
-- jquery
+- @mapbox/mapbox-gl-geocoder
 
 The logo is a remix of [🌐 from emojiOne](https://github.com/emojione/emojione/tree/2.2.7/assets) released under _Creative Commons Attribution 4.0 International_ and the [Softwerkskammer Logo](https://github.com/softwerkskammer/softwerkskammer-logos) released under _Creative Commons Attribution 3.0_.

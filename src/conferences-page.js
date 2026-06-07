@@ -1,10 +1,12 @@
 import '../src/style.scss';
+import initModals from './modals.js';
+import initSidenav from './sidenav.js';
 
 const CONFERENCES_DATA_URL = './conferences.json';
 
 const showErrorMessage = element => {
   element.innerHTML =
-    '<p class="red-text center-align">Error loading conferences. Please try again later.</p>';
+    '<p class="center-align">Error loading conferences. Please try again later.</p>';
 };
 
 const showNoConferencesMessage = element => {
@@ -51,30 +53,26 @@ const createConferenceItem = conference => {
   const dateDisplay = formatDateDisplay(conference['next-date'].start, conference['next-date'].end);
 
   const locationHtml = conference.location?.name
-    ? `<p class="grey-text" style="margin: 5px 0;">
-          <i class="fa fa-map-marker" style="margin-right: 8px;"></i>${conference.location.name}
+    ? `<p class="grey-text conference-meta conference-location">
+          <i class="fa fa-map-marker conference-meta-icon"></i>${conference.location.name}
          </p>`
     : '';
 
   const descriptionHtml = conference.description
-    ? `<p style="margin: 10px 0;">${conference.description}</p>`
+    ? `<p class="conference-description">${conference.description}</p>`
     : '';
 
   listItem.innerHTML = `
-      <div class="row" style="margin-bottom: 0;">
-        <div class="col s12">
-          <h5 class="title" style="margin: 0;">
-            <a href="${conference.url}" target="_blank" rel="noopener noreferrer" class="blue-text text-darken-2">
-              ${conference.name}
-            </a>
-          </h5>
-          <p class="grey-text" style="margin: 5px 0;">
-            <i class="fa fa-calendar" style="margin-right: 8px;"></i>${dateDisplay}
-          </p>
-          ${locationHtml}
-          ${descriptionHtml}
-        </div>
-      </div>
+      <h5 class="title conference-title">
+        <a href="${conference.url}" target="_blank" rel="noopener noreferrer" class="blue-text text-darken-2">
+          ${conference.name}
+        </a>
+      </h5>
+      <p class="grey-text conference-meta conference-date">
+        <i class="fa fa-calendar conference-meta-icon"></i>${dateDisplay}
+      </p>
+      ${locationHtml}
+      ${descriptionHtml}
     `;
 
   return listItem;
@@ -92,8 +90,8 @@ const loadConferences = async () => {
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-  $('.modal').modal();
-  $('.button-collapse').sideNav();
+  initModals();
+  initSidenav();
 
   const loadingElement = document.getElementById('loading');
   const conferencesList = document.getElementById('conferences-list-page');

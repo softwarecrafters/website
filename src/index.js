@@ -1,9 +1,10 @@
 import initMap from './map.js';
 import initModals from './modals.js';
+import initSidenav from './sidenav.js';
 import './style.scss';
 
-$(document).ready(function () {
-  $('.button-collapse').sideNav();
+document.addEventListener('DOMContentLoaded', () => {
+  initSidenav();
 
   initModals();
   initMap();

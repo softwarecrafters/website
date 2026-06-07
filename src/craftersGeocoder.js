@@ -1,4 +1,6 @@
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import communities from './communities/dataSource';
 import conferences from './conferences/dataSource';
 
@@ -24,7 +26,12 @@ const createLocalGeocoder = features => query => {
 
 export default () => {
   return new MapboxGeocoder({
+    mapboxgl,
     accessToken: mapboxgl.accessToken,
     localGeocoder: createLocalGeocoder(allFeatures),
+    localGeocoderOnly: true,
+    minLength: 1,
+    limit: 10,
+    placeholder: 'Search',
   });
 };
