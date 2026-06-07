@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
@@ -25,14 +25,14 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
-          node-version: '22'
+          node-version-file: '.nvmrc'
 
       - name: Check Prettier formatting
         id: prettier-check
         run: |
-          if prettier --check .; then
+          if npm run format:check; then
             echo "needs_formatting=false" >> $GITHUB_OUTPUT
             echo "✅ Code is already formatted"
             exit 0
@@ -45,7 +45,7 @@ jobs:
 
       - name: Run Prettier
         if: steps.prettier-check.outputs.needs_formatting == 'true'
-        run: npx prettier --write .
+        run: npm run format:write
 
       - name: Commit and push formatted code
         if: steps.prettier-check.outputs.needs_formatting == 'true' && github.event_name == 'push'

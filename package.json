@@ -20,6 +20,8 @@
     "test": "npm-run-all test:data test:js",
     "test:data": "node scripts/test-communities.js && node scripts/test-conferences.js",
     "test:js": "jest",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p dev"
   },
   "jest": {
@@ -28,26 +30,27 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.17.9",
-    "@babel/plugin-external-helpers": "^7.16.7",
-    "@babel/plugin-transform-runtime": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
-    "@vitejs/plugin-legacy": "^7.2.1",
-    "ajv": "^8.11.0",
+    "@babel/core": "^7.29.7",
+    "@babel/plugin-external-helpers": "^7.29.7",
+    "@babel/plugin-transform-runtime": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@vitejs/plugin-legacy": "^8.0.2",
+    "ajv": "^8.20.0",
     "ajv-formats": "^3.0.1",
-    "babel-jest": "^28.0.3",
-    "jest": "^28.0.3",
+    "babel-jest": "^30.4.1",
+    "jest": "^30.4.2",
     "npm-run-all": "^4.1.5",
-    "regenerator-runtime": "^0.13.9",
-    "sass": "^1.51.0",
-    "serve": "^14.1.2",
-    "vite": "^7.3.1"
+    "prettier": "^3.8.3",
+    "regenerator-runtime": "^0.14.1",
+    "sass": "^1.100.0",
+    "serve": "^14.2.6",
+    "vite": "^8.0.16"
   },
   "dependencies": {
-    "@babel/runtime": "^7.27.6",
-    "ics": "^2.35.0",
+    "@babel/runtime": "^7.29.7",
+    "ics": "^3.12.0",
     "js-joda": "^1.11.0",
-    "mapbox-gl": "^2.8.2",
-    "slugify": "^1.6.5"
+    "mapbox-gl": "^3.24.0",
+    "slugify": "^1.6.9"
   }
 }
