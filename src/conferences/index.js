@@ -61,6 +61,11 @@ const unclusteredConferencesPointLayer = {
   },
 };
 
+const SOURCE_ID = 'conferences';
+const CLUSTER_LAYER_ID = 'conference-clusters';
+const UNCLUSTERED_LAYER_IDS = ['unclustered-conferences', 'unclustered-conferences-point'];
+const INITIAL_LIST_SIZE = 5;
+
 const updateLocation = conference =>
   window.history.pushState(
     {},
@@ -83,90 +88,119 @@ const flyTo = (conference, map) => {
   showPopup(conference, map);
 };
 
-const updateConferencesList = map => {
-  const createElement = conference => {
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.innerText = conference.properties.name;
-    link.href = `#${conference.properties.id}`;
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      flyTo(conference, map);
+const findConferenceById = id =>
+  conferencesDataSource.data.features.find(feature => feature.properties.id === id);
+
+const addMapLayers = map => {
+  map.addSource(SOURCE_ID, conferencesDataSource);
+  [
+    clusterLayer,
+    clusterCountLayer,
+    unclusteredConferencesPointLayer,
+    unclusteredConferencesLayer,
+  ].forEach(layer => map.addLayer(layer));
+};
+
+const bindClusterClick = map => {
+  map.on('click', CLUSTER_LAYER_ID, event => {
+    map.flyTo({
+      zoom: map.getZoom() + 2,
+      center: event.features[0].geometry.coordinates,
     });
-    li.appendChild(link);
-    li.append(` (${conference.properties.start})`);
-    return li;
-  };
-
-  const list = document.querySelector('#conferences-list');
-  const nextFive = nextConferences.slice(0, 5);
-
-  nextFive.map(createElement).forEach(li => list.appendChild(li));
-
-  document.querySelector('a#conferences-list-all').addEventListener('click', e => {
-    e.preventDefault();
-    e.target.remove();
-    list.innerHTML = '';
-    nextConferences.map(createElement).forEach(li => list.appendChild(li));
   });
+};
+
+const isSingleConferenceResult = features =>
+  features.length === 1 ||
+  (features.length === 2 && features[0].properties.id === features[1].properties.id);
+
+const bindUnclusteredClick = map => {
+  map.on('click', event => {
+    const features = map.queryRenderedFeatures(event.point, {
+      layers: UNCLUSTERED_LAYER_IDS,
+    });
+
+    if (isSingleConferenceResult(features)) {
+      flyTo(features[0], map);
+    }
+  });
+};
+
+const bindPointerCursor = map => {
+  const setPointerCursor = () => (map.getCanvas().style.cursor = 'pointer');
+  const resetPointerCursor = () => (map.getCanvas().style.cursor = '');
+
+  map.on('mouseenter', CLUSTER_LAYER_ID, setPointerCursor);
+  map.on('mouseenter', 'unclustered-conferences-point', setPointerCursor);
+  map.on('mouseleave', CLUSTER_LAYER_ID, resetPointerCursor);
+  map.on('mouseleave', 'unclustered-conferences-point', resetPointerCursor);
+};
+
+const bindGeocoderResult = (map, geocoder) => {
+  geocoder.on('result', ({ result }) => {
+    const conference = findConferenceById(result.id);
+    if (!conference) {
+      return;
+    }
+
+    updateLocation(conference);
+    showPopup(conference, map);
+  });
+};
+
+const renderConferenceList = (map, list, conferences) => {
+  conferences
+    .map(conference => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.innerText = conference.properties.name;
+      link.href = `#${conference.properties.id}`;
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        flyTo(conference, map);
+      });
+      li.appendChild(link);
+      li.append(` (${conference.properties.start})`);
+      return li;
+    })
+    .forEach(li => list.appendChild(li));
+};
+
+const updateConferencesList = map => {
+  const list = document.querySelector('#conferences-list');
+  const showAllLink = document.querySelector('a#conferences-list-all');
+
+  renderConferenceList(map, list, nextConferences.slice(0, INITIAL_LIST_SIZE));
+
+  showAllLink.addEventListener('click', event => {
+    event.preventDefault();
+    event.target.remove();
+    list.innerHTML = '';
+    renderConferenceList(map, list, nextConferences);
+  });
+};
+
+const flyToConferenceInHash = map => {
+  const idFromHash = window.location.hash.slice(1);
+  if (!idFromHash) {
+    return;
+  }
+
+  const conference = findConferenceById(idFromHash);
+  if (conference) {
+    flyTo(conference, map);
+  }
 };
 
 export default async (map, geocoder) => {
   await loadIcons(map, conferencesDataSource);
 
-  map.addSource('conferences', conferencesDataSource);
-  map.addLayer(clusterLayer);
-  map.addLayer(clusterCountLayer);
-  map.addLayer(unclusteredConferencesPointLayer);
-  map.addLayer(unclusteredConferencesLayer);
-
-  map.on('click', 'conference-clusters', e => {
-    map.flyTo({
-      zoom: map.getZoom() + 2,
-      center: e.features[0].geometry.coordinates,
-    });
-  });
-
-  map.on('click', e => {
-    const features = map.queryRenderedFeatures(e.point, {
-      layers: ['unclustered-conferences', 'unclustered-conferences-point'],
-    });
-
-    if (
-      features.length === 1 ||
-      (features.length === 2 && features[0].properties.id === features[1].properties.id)
-    ) {
-      flyTo(features[0], map);
-    }
-  });
-
-  const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
-  const hidePointer = () => (map.getCanvas().style.cursor = '');
-
-  map.on('mouseenter', 'conference-clusters', showPointer);
-  map.on('mouseenter', 'unclustered-conferences-point', showPointer);
-
-  map.on('mouseleave', 'conference-clusters', hidePointer);
-  map.on('mouseleave', 'unclustered-conferences-point', hidePointer);
-
-  geocoder.on('result', ({ result }) => {
-    const conference = conferencesDataSource.data.features.find(
-      feature => feature.properties.id === result.id
-    );
-    if (conference) {
-      updateLocation(conference);
-      showPopup(conference, map);
-    }
-  });
+  addMapLayers(map);
+  bindClusterClick(map);
+  bindUnclusteredClick(map);
+  bindPointerCursor(map);
+  bindGeocoderResult(map, geocoder);
 
   updateConferencesList(map);
-  if (window.location.hash) {
-    const id = window.location.hash.slice(1);
-    const conference = conferencesDataSource.data.features.find(
-      feature => feature.properties.id === id
-    );
-    if (conference) {
-      flyTo(conference, map);
-    }
-  }
+  flyToConferenceInHash(map);
 };

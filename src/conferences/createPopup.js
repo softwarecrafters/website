@@ -6,10 +6,12 @@ const createCocText = conference =>
     : '';
 
 const createHealthPolicyText = conference =>
-  `<p><strong>Health Policy: </strong>${conference.properties.health ?? 'not specified'}`;
+  `<p><strong>Health Policy: </strong>${conference.properties.health ?? 'not specified'}</p>`;
 
 const createDateText = conference => {
-  if (conference.properties.start == null) return '';
+  if (conference.properties.start == null) {
+    return '';
+  }
 
   const { start, end, singleDay, isUpcoming, daysUntil } = conference.properties;
 
@@ -20,18 +22,16 @@ const createDateText = conference => {
     (isUpcoming ? ` <span class="nowrap">(in ${prettyPrint(daysUntil)})</span>` : '');
 
   if (!isUpcoming) {
-    return `<p><strong>Last:&nbsp;</strong>${dateFormatted}`;
+    return `<p><strong>Last:&nbsp;</strong>${dateFormatted}</p>`;
   }
 
-  return `<p><strong>Next:&nbsp;</strong>${dateFormatted}`;
+  return `<p><strong>Next:&nbsp;</strong>${dateFormatted}</p>`;
 };
 
-const createIcon = conference => `  ${
+const createIcon = conference =>
   conference.properties.icon
     ? `<img class="popup-icon" role="presentation" src="${conference.properties.icon}">`
-    : ''
-}
-`;
+    : '';
 
 export default conference => {
   const div = document.createElement('div');

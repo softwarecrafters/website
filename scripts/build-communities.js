@@ -1,18 +1,14 @@
 const path = require('path');
 const fs = require('fs');
+const { listJsonFiles, readJson } = require('./jsonFiles');
 
-const communitiesDir = path.resolve(__dirname, '../communities/');
-const communityFiles = fs
-  .readdirSync(communitiesDir)
-  .filter(file => file.endsWith('.json'))
-  .map(file => path.join(communitiesDir, file));
+const communitiesDir = path.resolve(__dirname, '../communities');
+const communityFiles = listJsonFiles(communitiesDir);
 
 // validate
 
 // write to communities.json
-const communities = communityFiles.map(file => {
-  return JSON.parse(fs.readFileSync(file).toString());
-});
+const communities = communityFiles.map(readJson);
 
 fs.writeFileSync(
   path.resolve(__dirname, '../communities.json'),

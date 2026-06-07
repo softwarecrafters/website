@@ -1,7 +1,8 @@
-communities.json
+.vscode
 node_modules
 target/
+target/*schema*.json
+communities.json
 conferences.json
 conferences.ics
 conferences.js
-target/*schema*.json

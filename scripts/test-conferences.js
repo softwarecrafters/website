@@ -4,24 +4,22 @@ const fs = require('fs');
 const Ajv = require('ajv/dist/2020');
 const addFormats = require('ajv-formats');
 const conferenceSchema = require('../conferences_schema_v2.json');
+const { listJsonFiles, readJson } = require('./jsonFiles');
 
 const ajv = new Ajv();
 addFormats(ajv);
 
 const validate = ajv.compile(conferenceSchema);
 
-const conferencesDir = path.resolve(__dirname, '../conferences/');
-const conferenceFiles = fs
-  .readdirSync(conferencesDir)
-  .filter(file => file.endsWith('.json'))
-  .map(file => path.join(conferencesDir, file));
+const conferencesDir = path.resolve(__dirname, '../conferences');
+const conferenceFiles = listJsonFiles(conferencesDir);
 
 let failed = false;
 
 console.log('Testing conference files');
 conferenceFiles.forEach(file => {
   const baseName = path.basename(file);
-  const isValid = validate(JSON.parse(fs.readFileSync(file)));
+  const isValid = validate(readJson(file));
 
   if (!isValid) {
     failed = true;

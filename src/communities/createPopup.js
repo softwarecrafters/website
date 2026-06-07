@@ -5,13 +5,13 @@ export default community => {
   div.classList.add('popup');
   div.classList.add('community-popup');
 
+  const icon = community.properties.icon
+    ? `<img class="popup-icon" role="presentation" src="${community.properties.icon}">`
+    : '';
+
   div.innerHTML = `
     <h1><a target="_blank" href="${community.properties.url}">${community.properties.name}</a>
-  ${
-    community.properties.icon
-      ? `<img class="popup-icon" role="presentation" src="${community.properties.icon}">`
-      : ''
-  }
+  ${icon}
   </h1>
   `;
 

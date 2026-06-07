@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import { RED, YELLOW } from '../colors';
+import { RED } from '../colors';
 import { loadIcons } from '../loadIcons';
 import createPopup from './createPopup';
 import communitiesDataSource from './dataSource';
@@ -61,6 +61,10 @@ const unclusteredCommunitiesPointLayer = {
   },
 };
 
+const SOURCE_ID = 'communities';
+const CLUSTER_LAYER_ID = 'community-clusters';
+const UNCLUSTERED_LAYER_IDS = ['unclustered-communities', 'unclustered-communities-point'];
+
 const updateLocation = community =>
   window.history.pushState(
     {},
@@ -83,60 +87,84 @@ const flyTo = (community, map) => {
   showPopup(community, map);
 };
 
-export default async (map, geocoder) => {
-  await loadIcons(map, communitiesDataSource);
+const findCommunityById = id =>
+  communitiesDataSource.data.features.find(feature => feature.properties.id === id);
 
-  map.addSource('communities', communitiesDataSource);
-  map.addLayer(clusterLayer);
-  map.addLayer(clusterCountLayer);
-  map.addLayer(unclusteredCommunitiesPointLayer);
-  map.addLayer(unclusteredCommunitiesLayer);
+const addMapLayers = map => {
+  map.addSource(SOURCE_ID, communitiesDataSource);
+  [
+    clusterLayer,
+    clusterCountLayer,
+    unclusteredCommunitiesPointLayer,
+    unclusteredCommunitiesLayer,
+  ].forEach(layer => map.addLayer(layer));
+};
 
-  map.on('click', 'community-clusters', e => {
+const bindClusterClick = map => {
+  map.on('click', CLUSTER_LAYER_ID, event => {
     map.flyTo({
       zoom: map.getZoom() + 2,
-      center: e.features[0].geometry.coordinates,
+      center: event.features[0].geometry.coordinates,
     });
   });
+};
 
-  map.on('click', e => {
-    const features = map.queryRenderedFeatures(e.point, {
-      layers: ['unclustered-communities', 'unclustered-communities-point'],
+const isSingleCommunityResult = features =>
+  features.length === 1 ||
+  (features.length === 2 && features[0].properties.id === features[1].properties.id);
+
+const bindUnclusteredClick = map => {
+  map.on('click', event => {
+    const features = map.queryRenderedFeatures(event.point, {
+      layers: UNCLUSTERED_LAYER_IDS,
     });
-    if (
-      features.length === 1 ||
-      (features.length === 2 && features[0].properties.id === features[1].properties.id)
-    ) {
+    if (isSingleCommunityResult(features)) {
       flyTo(features[0], map);
     }
   });
+};
 
-  const showPointer = () => (map.getCanvas().style.cursor = 'pointer');
-  const hidePointer = () => (map.getCanvas().style.cursor = '');
+const bindPointerCursor = map => {
+  const setPointerCursor = () => (map.getCanvas().style.cursor = 'pointer');
+  const resetPointerCursor = () => (map.getCanvas().style.cursor = '');
 
-  map.on('mouseenter', 'community-clusters', showPointer);
-  map.on('mouseenter', 'unclustered-communities-point', showPointer);
+  map.on('mouseenter', CLUSTER_LAYER_ID, setPointerCursor);
+  map.on('mouseenter', 'unclustered-communities-point', setPointerCursor);
+  map.on('mouseleave', CLUSTER_LAYER_ID, resetPointerCursor);
+  map.on('mouseleave', 'unclustered-communities-point', resetPointerCursor);
+};
 
-  map.on('mouseleave', 'community-clusters', hidePointer);
-  map.on('mouseleave', 'unclustered-communities-point', hidePointer);
-
+const bindGeocoderResult = (map, geocoder) => {
   geocoder.on('result', ({ result }) => {
-    const community = communitiesDataSource.data.features.find(
-      feature => feature.properties.id === result.id
-    );
-    if (community) {
-      updateLocation(community);
-      showPopup(community, map);
+    const community = findCommunityById(result.id);
+    if (!community) {
+      return;
     }
-  });
 
-  if (window.location.hash) {
-    const id = window.location.hash.slice(1);
-    const community = communitiesDataSource.data.features.find(
-      feature => feature.properties.id === id
-    );
-    if (community) {
-      flyTo(community, map);
-    }
+    updateLocation(community);
+    showPopup(community, map);
+  });
+};
+
+const flyToCommunityInHash = map => {
+  const idFromHash = window.location.hash.slice(1);
+  if (!idFromHash) {
+    return;
   }
+
+  const community = findCommunityById(idFromHash);
+  if (community) {
+    flyTo(community, map);
+  }
+};
+
+export default async (map, geocoder) => {
+  await loadIcons(map, communitiesDataSource);
+
+  addMapLayers(map);
+  bindClusterClick(map);
+  bindUnclusteredClick(map);
+  bindPointerCursor(map);
+  bindGeocoderResult(map, geocoder);
+  flyToCommunityInHash(map);
 };

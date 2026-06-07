@@ -1,11 +1,23 @@
 const fetchP = url =>
-  new Promise(resolve => {
+  new Promise((resolve, reject) => {
     const cbName = `cb_${(Math.random() * 10000000) | 0}`;
-    window[cbName] = (...args) => {
+    const script = document.createElement('script');
+
+    const cleanup = () => {
       delete window[cbName];
+      script.remove();
+    };
+
+    window[cbName] = (...args) => {
+      cleanup();
       resolve(...args);
     };
-    const script = document.createElement('script');
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error(`Failed to load JSONP script: ${url}`));
+    };
+
     script.src = `${url}${cbName}`;
     document.body.appendChild(script);
   });

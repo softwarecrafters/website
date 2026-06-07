@@ -1,17 +1,10 @@
 const prettyPrint = days => {
   if (days >= 30) {
-    if (Math.round(days / 30) === 1) {
-      return `1 month`;
-    } else {
-      return `${Math.round(days / 30)} months`;
-    }
-  } else {
-    if (days === 1) {
-      return `1 day`;
-    } else {
-      return `${days} days`;
-    }
+    const months = Math.round(days / 30);
+    return `${months} month${months === 1 ? '' : 's'}`;
   }
+
+  return `${days} day${days === 1 ? '' : 's'}`;
 };
 
 export default prettyPrint;

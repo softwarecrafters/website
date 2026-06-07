@@ -6,7 +6,7 @@ const dataSource = {
   cluster: true,
   data: {
     type: 'FeatureCollection',
-    features: communities.map((community, i) => ({
+    features: communities.map(community => ({
       type: 'Feature',
       geometry: {
         type: 'Point',

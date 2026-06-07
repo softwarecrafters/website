@@ -2,6 +2,8 @@ import conferences from '../../conferences.json';
 import slugify from 'slugify';
 import { LocalDate, ChronoUnit } from 'js-joda';
 
+const today = LocalDate.now();
+
 const dataSource = {
   type: 'geojson',
   cluster: true,
@@ -9,7 +11,7 @@ const dataSource = {
     type: 'FeatureCollection',
     features: conferences
       .filter(conference => conference.location !== 'virtual')
-      .map((conference, i) => {
+      .map(conference => {
         const props = {
           id: slugify(`conference-${conference.name}`).toLowerCase(),
           icon: conference.icon,
@@ -20,14 +22,14 @@ const dataSource = {
         };
 
         if (conference['next-date']) {
-          props.start = conference['next-date'].start;
-          props.end = conference['next-date'].end;
-          props.singleDay = conference['next-date'].start === conference['next-date'].end;
+          const nextDate = conference['next-date'];
+          props.start = nextDate.start;
+          props.end = nextDate.end;
+          props.singleDay = nextDate.start === nextDate.end;
 
           const parsedStart = LocalDate.parse(props.start);
-          const parsedEnd = LocalDate.parse(props.end);
-          props.isUpcoming = parsedStart.isAfter(LocalDate.now());
-          props.daysUntil = LocalDate.now().until(parsedStart, ChronoUnit.DAYS);
+          props.isUpcoming = parsedStart.isAfter(today);
+          props.daysUntil = today.until(parsedStart, ChronoUnit.DAYS);
         }
 
         return {

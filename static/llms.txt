@@ -1,0 +1,18 @@
+# Software Craft Communities Worldwide
+
+A directory of Software Craft communities and conferences worldwide.
+
+## Primary pages
+- https://www.softwarecrafters.org/
+- https://www.softwarecrafters.org/conferences.html
+
+## Machine-readable data
+- https://www.softwarecrafters.org/conferences.json
+- https://www.softwarecrafters.org/conferences.js
+- https://www.softwarecrafters.org/conferences.ics
+- https://www.softwarecrafters.org/communities.json
+- https://www.softwarecrafters.org/communities_schema.json
+- https://www.softwarecrafters.org/conferences_schema_v2.json
+
+## Canonical source
+- https://github.com/softwarecrafters/website
