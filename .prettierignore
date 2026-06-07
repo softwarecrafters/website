@@ -1,1 +1,11 @@
 target/
+node_modules/
+
+# Generated data artifacts
+communities.json
+conferences.json
+conferences.ics
+conferences.js
+
+# Vendored/minified third-party assets
+static/vendor/**

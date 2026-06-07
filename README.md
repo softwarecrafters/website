@@ -6,27 +6,26 @@ Feel free to fork this repository and add your local community to it.
 
 ## ⚙️ Setup
 
-The website uses [rollup](https://rollupjs.org/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/\*.json files](communities/). The app is integrated and deployed via [netlify.com](https://www.netlify.com/) which detects changes.
+The website uses [Vite](https://vite.dev/) to bundle the client-side JS and some hand-written preprocessing in order to merge and lint the [communities/\*.json files](communities/). The app is integrated and deployed via [netlify.com](https://www.netlify.com/) which detects changes.
 
 It is helpful to use [nvm](https://github.com/creationix/nvm) in order to make sure you're using the particular [node version](.nvmrc) we are using.
 
 ```
 nvm install           # installs the node version we are using
-npm install -g yarn   # Install yarn
-yarn                  # Install dependencies
+npm install           # Install dependencies
 
-yarn build            # Build initial version
-yarn watch            # Run the watch task
-yarn test             # Validate the present schemata
+npm run build         # Build initial version
+npm run watch         # Run the watch task
+npm test              # Validate the present schemata
 ```
 
 ## 🌐 Adding your community / conference
 
-If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through the build system (resp. for [conferences](conferences_schema.json)).
+If you want to add your local community / conference to the map, please have a look at how the [other communities](communities/) added their community (resp. [conferences](conferences/)). There is [a JSON schema](communities_schema.json) your `community.json` is validated against through the build system (resp. for [conferences](conferences_schema_v2.json)).
 
 1. Fork this repository
 2. Create a new file in `communities/${YOURCITYNAME}.json` (resp. `conferences/${YOURCONFERENCE}.json`)
-3. Enter valid JSON as of [the schema](communities_schema.json) (resp. [conferences_schema.json](conferences_schema.json))
+3. Enter valid JSON as of [the schema](communities_schema.json) (resp. [conferences_schema_v2.json](conferences_schema_v2.json))
 4. Commit & push your change
 5. Create a Pull Request against this repository
 
@@ -42,7 +41,7 @@ A lot of the conferences listed here also list their "sibling"-conferences on th
 
 - [`conferences.json`](https://softwarecrafters.org/conferences.json) contains all conferences (including past conferences right now).
 - [`conferences.js`](https://softwarecrafters.org/conferences.js) is a `jsonp`script that will call the function `window.softwarecraft_conferences_callback` with the exact same data as is contained in `conferences.json`.
-- See [`conferences_schema.json`](./conferences_schema.json) for a JSON-schema of an individual conference. The JSON will always contain an array of these.
+- See [`conferences_schema_v2.json`](./conferences_schema_v2.json) for a JSON-schema of an individual conference. The JSON will always contain an array of these.
 
 ### Example code (not tested)
 
@@ -67,7 +66,7 @@ TBD
 To be documented. For the moment, have a look at our [target/vendor/](target/vendor) directory and our [package.json](package.json).
 
 - materialize-css
-- rollup
+- vite
 - babel
 - font-awesome
 - mapbox
