@@ -1,4 +1,4 @@
-# ![Favicon](target/apple-icon-57x57.png) Software Craft Website
+# ![Favicon](static/apple-icon-57x57.png) Software Craft Website
 
 The website powering [softwarecrafters.org](https://softwarecrafters.org), a website for people to find their local [Software Craft](http://manifesto.softwarecraftsmanship.org/) communities.
 
@@ -63,7 +63,7 @@ TBD
 
 ## 💻 3rd-party libraries used
 
-To be documented. For the moment, have a look at our [target/vendor/](target/vendor) directory and our [package.json](package.json).
+To be documented. For the moment, have a look at our [static/vendor/](static/vendor) directory and our [package.json](package.json).
 
 - materialize-css
 - vite
