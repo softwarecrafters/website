@@ -37,7 +37,6 @@ const meetupGroupsNotFound = (
 const failedURL = failedURLNotOK.concat(meetupGroupsNotFound);
 
 if (failedURL.length > 0) {
-  console.log(failedURL);
-  console.log('%i communities URL are failing on a total of %i', failedURL.length, communitiesPath.length);
+  console.log({ failedURL, failedURLCount: failedURL.length, total: communitiesPath.length });
   process.exit(1);
 }
