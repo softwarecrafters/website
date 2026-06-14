@@ -14,9 +14,27 @@ const communities = communitiesPath
 
 const fetchCommunities = communities.map(community => fetch(community.url));
 
-const failedURL = (await Promise.all(fetchCommunities))
+const communitiesResponses = await Promise.all(fetchCommunities);
+
+const failedURLNotOK = communitiesResponses
   .filter(communityResponse => !communityResponse.ok)
   .map(communityResponse => communityResponse.url);
+
+// meetup.com answer with HTTP 200 when a group is not found
+const meetupGroupsNotFound = (
+  await Promise.all(
+    communitiesResponses
+      .filter(communityResponse => communityResponse.ok)
+      .map(async communityResponse => {
+        const communityHTML = await communityResponse.text();
+        return /<title[^>]*>Meetup | Group not found<\/title>/.test(communityHTML)
+          ? communityResponse.url
+          : null;
+      })
+  )
+).filter(maybeURL => maybeURL !== null);
+
+const failedURL = failedURLNotOK.concat(meetupGroupsNotFound);
 
 if (failedURL.length > 0) {
   console.log(failedURL);
