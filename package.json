@@ -20,6 +20,7 @@
     "test": "npm-run-all test:data test:js",
     "test:data": "node scripts/test-communities.js && node scripts/test-conferences.js",
     "test:js": "jest",
+    "test:data:url": "node scripts/test-communities-check-url.mjs",
     "watch": "npm-run-all build:communities build:conferences build:conferences-ics -p dev"
   },
   "jest": {
