@@ -1,7 +1,7 @@
 {
   "$schema": "https://softwarecrafters.org/conferences_schema_v2.json",
   "name": "JAlba",
-  "url": "http://jalba.scot/",
+  "url": "https://jalba.scot/",
   "code-of-conduct": "http://jalba.scot/jalba-code-of-conduct/",
   "location": {
     "city": "Edinburgh",
